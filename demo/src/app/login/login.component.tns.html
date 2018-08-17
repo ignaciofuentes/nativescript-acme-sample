@@ -1,0 +1,10 @@
+
+<GridLayout rows="auto auto auto" columns="auto auto" class="m-10">
+  <Label text="username" class="m-x-5"></Label>
+  <TextField hint="username" [(ngModel)]="username" col="1"></TextField>
+  
+  <Label text="password" class="m-x-5" row="1"></Label>
+  <TextField hint="password" [(ngModel)]="password" secure="true" row="1" col="1"></TextField>
+
+  <Button text="Login" (tap)="login()" class="btn btn-primary" row="2" colSpan="2"></Button>
+</GridLayout>

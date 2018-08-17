@@ -1,7 +1,10 @@
 {
   "name": "demo",
   "nativescript": {
-    "id": "org.nativescript.demo"
+    "id": "org.nativescript.demo",
+    "tns-ios": {
+      "version": "4.2.0"
+    }
   },
   "version": "0.0.0",
   "scripts": {
@@ -26,6 +29,8 @@
     "@angular/platform-browser-dynamic": "~6.1.0",
     "@angular/router": "~6.1.0",
     "core-js": "^2.5.4",
+    "kinvey-angular2-sdk": "^3.11.6",
+    "kinvey-nativescript-sdk": "^3.11.6",
     "nativescript-angular": "~6.1.0",
     "nativescript-theme-core": "~1.0.4",
     "reflect-metadata": "~0.1.8",

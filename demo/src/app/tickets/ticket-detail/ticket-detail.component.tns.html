@@ -1,0 +1,6 @@
+<ActionBar title="Ticket Details: {{ ticket?.status}}" class="action-bar"></ActionBar>
+
+<StackLayout *ngIf="ticket" class="m-15">
+  <Label class="h3" [text]="ticket.body" textWrap="true"></Label>
+  <Button text="Go Back" nsRouterLink="/tickets" clearHistory="true" class="btn btn-primary"></Button>
+</StackLayout>

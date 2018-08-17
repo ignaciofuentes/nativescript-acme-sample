@@ -1,0 +1,7 @@
+<h1>Tickets</h1>
+
+<div *ngFor="let ticket of tickets" [routerLink]="['/ticket', ticket._id]">
+  <h3>{{ ticket.body }}</h3>
+</div>
+
+<!-- {{ tickets$ | async }} -->

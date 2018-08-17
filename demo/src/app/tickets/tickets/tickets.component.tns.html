@@ -1,0 +1,12 @@
+<ActionBar title="Tickets" class="action-bar">
+</ActionBar>
+
+<StackLayout class="page">
+  <ListView [items]="tickets" class="list-group">
+    <ng-template let-ticket="item">
+      <Label  [text]="ticket.body"
+      [nsRouterLink]="['/ticket', ticket._id]" pageTransition="slideBottom"
+      class="list-group-item"></Label>
+    </ng-template>
+  </ListView>
+</StackLayout>
