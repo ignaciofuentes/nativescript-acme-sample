@@ -1,2 +1,32 @@
- 
 @import '~nativescript-theme-core/css/core.light.css';
+
+Page {
+    font-family: Avenir, 'Nunito-Regular';
+    background-color: #383741;
+    color: black;
+}
+.fancy-background {
+    background-image: url("~/images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ion {
+    font-family: Ionicons, ionicons;
+    font-size: 60;
+}
+.bold {
+    font-family: Avenir, 'Nunito-Bold';
+}
+
+.action-bar {
+    padding: 5 0;
+    background-color: #383741;
+}
+.action-bar-logo {
+    height: 55;
+    color: white;
+    horizontal-align: center;
+    vertical-align: middle;
+}
+

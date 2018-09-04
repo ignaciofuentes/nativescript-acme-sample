@@ -1,0 +1,83 @@
+.logo {
+    margin-top: 20;
+    height: 150;
+    horizontal-align: center;
+}
+    .h1 {
+    color: #FFFFFF;
+    font-size: 28;
+    text-align: center;
+    margin-top: 20;
+    margin-bottom: 40;
+    font-weight: 300;
+}
+
+.form-container {
+    height: 85;
+    padding: 15 0;
+    margin: 0 30;
+}
+.hr {
+    background-color: #3F3D49;
+    height: 1;
+    margin: 0 30;
+}
+.form-container .ion {
+    font-size: 32;
+    color: #9E9DA1;
+    margin-left: 10;
+    margin-right: 10;
+}
+.upper-label {
+    font-size: 10;
+    color: #FFFFFF;
+    letter-spacing: 0.1;
+    font-weight: 400;
+}
+TextField {
+    color: white;
+    placeholder-color: blue;
+    padding: 0 0 5 0;
+    text-decoration: none;
+    background-color: transparent;
+    font-weight: 500;
+}
+.android TextField {
+    font-weight: 300;
+}
+
+Button {
+    horizontal-align: center;
+    color: #FFFFFF;
+    background-color: #FF584E;
+    font-size: 14;
+    border-radius: 30;
+    padding: 15 0;
+    font-weight: 600;
+    margin-top: 40;
+    width: 325;
+}
+Button:disabled {
+    opacity: 0.5;
+}
+.android Button {
+    font-weight: 400;
+    text-transform: none;
+    font-size: 16;
+}
+
+.or {
+    font-size: 12;
+    margin-top: 25;
+    color: #9E9DA1;
+    text-align: center;
+    font-weight: 300;
+}
+.sign-in {
+    color: #FFFFFF;
+    font-size: 14;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 0.1;
+    margin-top: 20;
+}

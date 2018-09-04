@@ -1,10 +1,30 @@
+<StackLayout [class.ios]="isIOS" [class.android]="isAndroid">
+  <Image class="logo" src="~/images/logo.png"></Image>
 
-<GridLayout rows="auto auto auto" columns="auto auto" class="m-10">
-  <Label text="username" class="m-x-5"></Label>
-  <TextField hint="username" [(ngModel)]="username" col="1"></TextField>
-  
-  <Label text="password" class="m-x-5" row="1"></Label>
-  <TextField hint="password" [(ngModel)]="password" secure="true" row="1" col="1"></TextField>
+  <Label class="h1" text="ACME Field Service"></Label>
 
-  <Button text="Login" (tap)="login()" class="btn btn-primary" row="2" colSpan="2"></Button>
-</GridLayout>
+  <GridLayout rows="auto, auto, auto">
+      <GridLayout row="0" rows="*, *" columns="50, *" class="form-container">
+          <Label row="0" rowSpan="2" col="0" class="ion" text="&#xf47d;"></Label>
+          <Label row="0" col="1" class="upper-label" text="USER"></Label>
+          <TextField row="1" col="1" [(ngModel)]="name"></TextField>
+      </GridLayout>
+
+      <StackLayout row="1" class="hr"></StackLayout>
+
+      <GridLayout row="2" rows="*, *" columns="50, *" class="form-container">
+          <Label row="0" rowSpan="2" col="0" class="ion" text="&#xf4c8;"></Label>
+          <Label row="0" col="1" class="upper-label" text="PASSWORD"></Label>
+          <TextField row="1" col="1" [(ngModel)]="password"></TextField>
+      </GridLayout>
+
+      <ActivityIndicator rowSpan="3" [busy]="processing"></ActivityIndicator>
+  </GridLayout>
+
+  <StackLayout class="hr"></StackLayout>
+
+  <Button [isEnabled]="!processing" text="Company Sign In" (tap)="loginWithMIC()"></Button>
+
+  <Label class="or" text="OR"></Label>
+  <Label class="sign-in" text="SIGN IN WITH KINVEY MOBILE ID" (tap)="login()"></Label>
+</StackLayout>
