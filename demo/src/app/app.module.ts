@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TicketsModule } from './tickets/tickets.module';
-
+import { BackendService } from "./backend.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +19,9 @@ import { TicketsModule } from './tickets/tickets.module';
     AppRoutingModule,
     TicketsModule
   ],
-  providers: [],
+  providers: [
+    BackendService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -36,7 +36,7 @@ export class BackendService {
   async sampleLogin() {
     console.warn('remove this function from the production app');
     await Kinvey.User.logout();
-    this.user = await Kinvey.User.login('test@email.com', 'seba1234');
+    this.user = await Kinvey.User.login('admin', 'admin');
   }
 
   async getTickets(): Promise<Ticket[]> {

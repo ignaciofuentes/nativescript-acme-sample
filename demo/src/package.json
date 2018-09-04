@@ -4,13 +4,5 @@
   },
   "main": "main.ns.js",
   "name": "migration-ng",
-  "version": "4.1.0",
-  "pluginsData": {
-    "kinvey-nativescript-sdk": {
-      "config": {
-        "appKey": "kid_rkDJUINIQ",
-        "appSecret": "17282f9d91da4af7b398855e32ea4dd0"
-      }
-    }
-  }
+  "version": "4.1.0"
 }

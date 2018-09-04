@@ -4,7 +4,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { isIOS, isAndroid } from "tns-core-modules/platform";
 import { Page } from "tns-core-modules/ui/page"
 
-import { LoginService } from "./login.service";
+import { BackendService } from '../backend.service';
 
 @Component({
     selector: "Login",
@@ -23,7 +23,7 @@ export class LoginComponent {
         private _routerExtensions: RouterExtensions,
         private zone: NgZone,
         private page: Page,
-        private loginService: LoginService
+        private backendService: BackendService
     ) {
         this.page.backgroundSpanUnderStatusBar = true;
         this.page.actionBarHidden = true;
@@ -33,7 +33,7 @@ export class LoginComponent {
     async login() {
         this.processing = true;
         try {
-            await this.loginService.login(this.name, this.password);
+            await this.backendService.login(this.name, this.password);
             this.processing = false;
             this.navigateToTickets();
         } catch (error) {
@@ -44,8 +44,9 @@ export class LoginComponent {
     }
 
     async loginWithMIC() {
+        this.processing = true;
         try {
-            const user = await this.loginService.loginWithMIC();
+            const user = await this.backendService.sampleLogin();
             this.processing = false;
             this.navigateToTickets();
             console.log("user: " + JSON.stringify(user));

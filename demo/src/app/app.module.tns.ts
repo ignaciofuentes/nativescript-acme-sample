@@ -7,8 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TicketsModule } from './tickets/tickets.module';
 import { LoginComponent } from './login/login.component';
-
-import { LoginService } from "./login/login.service";
+import { BackendService } from "./backend.service";
 
 @NgModule({
   declarations: [
@@ -23,7 +22,7 @@ import { LoginService } from "./login/login.service";
     TicketsModule
   ],
   providers: [
-    LoginService
+    BackendService
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]

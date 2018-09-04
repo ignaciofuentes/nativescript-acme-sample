@@ -1,12 +1,21 @@
-<ActionBar title="Tickets" class="action-bar">
-</ActionBar>
+<DockLayout stretchLastChild="true">
+  <!--<app-nav-bar [index]="1"></app-nav-bar>-->
 
-<StackLayout class="page">
-  <ListView [items]="tickets" class="list-group">
-    <ng-template let-ticket="item">
-      <Label  [text]="ticket.body"
-      [nsRouterLink]="['/ticket', ticket._id]" pageTransition="slideBottom"
-      class="list-group-item"></Label>
-    </ng-template>
-  </ListView>
-</StackLayout>
+  <GridLayout rows="auto, *">
+    <StackLayout row="0" class="action-bar">
+      <Image src="~/images/logo.png" class="action-bar-logo"></Image>
+    </StackLayout>
+
+    <ListView row="1" height="100%" [items]="alerts" class="list-group">
+      <ng-template let-alert="item" let-odd="odd" let-even="even">
+        <GridLayout rows="auto, auto" columns="auto, *" class="item-container">
+          <StackLayout col="0" rowSpan="2" class="circle">
+            <Label text="&#xf405;" class="ion alert-icon"></Label>
+          </StackLayout>
+          <Label col="1" row="0" [text]="alert.equipment" class="alert-name"></Label>
+          <Label col="1" row="1" [text]="'Predicted failure in: ' + alert.predictedfailure" class="alert-failure"></Label>
+        </GridLayout>
+      </ng-template>
+    </ListView>
+  </GridLayout>
+</DockLayout>
