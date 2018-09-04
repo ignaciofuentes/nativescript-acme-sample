@@ -1,0 +1,50 @@
+ListView {
+    separator-color: transparent;
+    opacity: 0;
+}
+.visible {
+    animation-name: show;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes show {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.page-container {
+    background-color: white;
+}
+.item-container {
+    margin: 0 25;
+    padding: 20 0;
+    border-color: #E5E5E5;
+    border-width: 0 0 1 0;
+}
+.list-icon {
+    font-size: 36;
+    margin-right: 20;
+    font-weight: 600;
+    vertical-align: middle;
+}
+.android .list-icon {
+    font-weight: 300;
+}
+.list-order {
+    font-size: 10;
+}
+.list-location {
+    font-size: 18;
+}
+.list-status {
+    font-size: 9;
+    color: green;
+    letter-spacing: 0.1;
+    font-weight: 900;
+    vertical-align: middle;
+    min-width: 100;
+    text-align: right;
+}
+.android .list-status {
+    font-size: 10;
+}
