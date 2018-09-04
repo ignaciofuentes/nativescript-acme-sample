@@ -11,8 +11,8 @@
         <StackLayout>
           <GridLayout class="item-container" rows="auto, auto" columns="auto, *, 110">
             <Label col="0" rowSpan="2" class="ion list-icon" text="&#xf471;"></Label>
-            <Label col="1" row="0" class="list-order" text="TICKET-ID-HERE"></Label>
-            <Label col="1" row="1" class="list-location" [text]="ticket.body"></Label>
+            <Label col="1" row="0" class="list-order" [text]="ticket.ticketid"></Label>
+            <Label col="1" row="1" class="list-location" [text]="ticket.title"></Label>
             <Label col="2" row="0" rowSpan="2" class="list-status bold" [color]="getStatusColor(ticket.status)" [text]="ticket.status" textTransform="uppercase"></Label>
           </GridLayout>
         </StackLayout>

@@ -4,6 +4,8 @@ import { Kinvey, CacheStore } from './utils';
 export interface Ticket {
   _id: string;
   userId: string;
+  ticketId: string;
+  title: string;
   status: string;
   body: string;
 }
@@ -49,7 +51,7 @@ export class BackendService {
     return this.ticketsStore.findById(id).toPromise();
   }
 
-  addTicket(id: string, body: string, status: string = 'open') {
+  /*addTicket(id: string, body: string, status: string = 'open') {
     const newTicket: Ticket = {
       userId: this.user._id,
       _id: id,
@@ -58,7 +60,7 @@ export class BackendService {
     };
 
     this.ticketsStore.save(newTicket);
-  }
+  }*/
 
   removeTicket(id: string) {
     this.ticketsStore.removeById(id);
