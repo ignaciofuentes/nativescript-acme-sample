@@ -5,8 +5,9 @@ import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TicketsModule } from './tickets/tickets.module';
 import { LoginComponent } from './login/login.component';
+import { TicketsModule } from './tickets/tickets.module';
+import { ProfileModule } from "./profile/profile.module";
 import { BackendService } from "./backend.service"
 
 @NgModule({
@@ -19,7 +20,8 @@ import { BackendService } from "./backend.service"
     NativeScriptFormsModule,
     NativeScriptHttpClientModule,
     AppRoutingModule,
-    TicketsModule
+    TicketsModule,
+    ProfileModule
   ],
   providers: [
     BackendService

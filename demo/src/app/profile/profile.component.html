@@ -1,0 +1,14 @@
+<DockLayout stretchLastChild="true">
+    <app-nav-bar [index]="3"></app-nav-bar>
+  
+    <GridLayout rows="auto, *">
+      <StackLayout row="0" class="action-bar">
+        <Image src="~/app/images/logo.png" class="action-bar-logo"></Image>
+      </StackLayout>
+      <StackLayout row="1">
+        <Label class="ion" text="&#xf47d;"></Label>
+        <Label class="user-name" text="user@progress.com"></Label>
+        <Button (tap)="logout()" text="Log out"></Button>
+      </StackLayout>
+    </GridLayout>
+  </DockLayout>

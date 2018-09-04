@@ -4,9 +4,14 @@
         <Label class="label" text="TICKETS"></Label>
     </StackLayout>
 
-    <StackLayout col="1" [nsRouterLink]="['/alerts']" pageTransition="none" clearHistory="true" [class.active]="index == 1">
+    <!--<StackLayout col="1" [nsRouterLink]="['/alerts']" pageTransition="none" clearHistory="true" [class.active]="index == 1">
         <Label class="ion" text="&#xf3e1;"></Label>
         <Label class="label" text="NOTIFICATIONS"></Label>
+    </StackLayout>-->
+
+    <StackLayout col="1" [nsRouterLink]="['/equipment']" pageTransition="none" clearHistory="true" [class.active]="index == 2">
+        <Label class="ion" text="&#xf25b;"></Label>
+        <Label class="label" text="EQUIPMENT"></Label>
     </StackLayout>
 
     <StackLayout col="2" [nsRouterLink]="['/profile']" pageTransition="none" clearHistory="true" [class.active]="index == 3">

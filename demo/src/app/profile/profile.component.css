@@ -1,0 +1,24 @@
+DockLayout {
+    background-color: white;
+}
+.ion {
+    font-size: 200;
+    horizontal-align: center;
+    margin-top: 50;
+}
+.user-name {
+    horizontal-align: center;
+    color: black;
+    font-size: 18;
+}
+Button {
+    horizontal-align: center;
+    color: #FFFFFF;
+    background-color: #FF584E;
+    font-size: 14;
+    width: 350;
+    border-radius: 30;
+    padding: 15 0;
+    font-weight: 600;
+    margin-top: 50;
+}
