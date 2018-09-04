@@ -34,10 +34,10 @@ export class LoginComponent {
         this.processing = true;
         try {
             await this.loginService.login(this.name, this.password);
-            this.processing = true;
-            this.navigateHome();
+            this.processing = false;
+            this.navigateToTickets();
         } catch (error) {
-            this.processing = true;
+            this.processing = false;
             alert("An error occurred. Check your Kinvey settings.");
             console.log("error: " + error);
         }
@@ -46,17 +46,17 @@ export class LoginComponent {
     async loginWithMIC() {
         try {
             const user = await this.loginService.loginWithMIC();
-            this.processing = true;
-            this.navigateHome();
+            this.processing = false;
+            this.navigateToTickets();
             console.log("user: " + JSON.stringify(user));
         } catch (error) {
-            this.processing = true;
+            this.processing = false;
             alert("An error occurred. Check your Kinvey settings.");
             console.log("error: " + error);
         }
     }
 
-    private navigateHome() {
+    private navigateToTickets() {
         this.zone.run(() => {
             this._routerExtensions.navigate(["/tickets"], {
                 clearHistory: true,
