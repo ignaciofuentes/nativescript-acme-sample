@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TicketsModule } from './tickets/tickets.module';
+import { EquipmentModule } from "./equipment/equipment.module";
 import { ProfileModule } from "./profile/profile.module";
 import { BackendService } from "./backend.service"
 
@@ -21,6 +22,7 @@ import { BackendService } from "./backend.service"
     NativeScriptHttpClientModule,
     AppRoutingModule,
     TicketsModule,
+    EquipmentModule,
     ProfileModule
   ],
   providers: [
