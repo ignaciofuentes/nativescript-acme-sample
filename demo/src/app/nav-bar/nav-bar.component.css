@@ -1,0 +1,24 @@
+GridLayout {
+    background-color: #7B8189;
+    color: #FFFFFF;
+    height: 65;
+}
+.iPhoneX {
+    height: 80;
+}
+StackLayout {
+    padding: 8 0;
+}
+.active {
+    background-color:#383741;
+}
+.ion {
+    font-size: 32;
+    text-align: center;
+    margin-bottom: 5;
+}
+.label {
+    font-size: 9;
+    text-align: center;
+    letter-spacing: 0.1;
+}

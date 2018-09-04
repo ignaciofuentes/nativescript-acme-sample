@@ -1,7 +1,5 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Kinvey, CacheStore } from './utils';
-import { Observable, pipe, from } from 'rxjs';
-import { concat, concatMap } from 'rxjs/operators';
 
 export interface Ticket {
   _id: string;

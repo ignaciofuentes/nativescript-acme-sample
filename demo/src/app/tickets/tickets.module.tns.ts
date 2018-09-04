@@ -3,12 +3,14 @@ import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { NativeScriptRouterModule } from 'nativescript-angular/router';
 
 import { ROUTES, COMPONENT_DECLARATIONS } from './tickets.common';
+import { NavBarModule } from "../nav-bar/nav-bar.module";
 
 @NgModule({
   imports: [
     NativeScriptCommonModule,
     NativeScriptRouterModule,
-    NativeScriptRouterModule.forRoot(ROUTES)
+    NativeScriptRouterModule.forRoot(ROUTES),
+    NavBarModule
   ],
   exports: [
     NativeScriptRouterModule

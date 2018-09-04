@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TicketsModule } from './tickets/tickets.module';
 import { LoginComponent } from './login/login.component';
-import { BackendService } from "./backend.service";
+import { BackendService } from "./backend.service"
 
 @NgModule({
   declarations: [
