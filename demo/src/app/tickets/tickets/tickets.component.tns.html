@@ -6,14 +6,14 @@
       <Image src="~/images/logo.png" class="action-bar-logo"></Image>
     </StackLayout>
 
-    <ListView row="1" height="100%" [items]="alerts" class="list-group">
-      <ng-template let-alert="item" let-odd="odd" let-even="even">
+    <ListView row="1" height="100%" [items]="tickets" class="list-group">
+      <ng-template let-ticket="item" let-odd="odd" let-even="even">
         <GridLayout rows="auto, auto" columns="auto, *" class="item-container">
           <StackLayout col="0" rowSpan="2" class="circle">
             <Label text="&#xf405;" class="ion alert-icon"></Label>
           </StackLayout>
-          <Label col="1" row="0" [text]="alert.equipment" class="alert-name"></Label>
-          <Label col="1" row="1" [text]="'Predicted failure in: ' + alert.predictedfailure" class="alert-failure"></Label>
+          <Label col="1" row="0" [text]="ticket.status" class="alert-name"></Label>
+          <Label col="1" row="1" [text]="ticket.body" class="alert-failure"></Label>
         </GridLayout>
       </ng-template>
     </ListView>
