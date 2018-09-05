@@ -23,12 +23,8 @@
 
         </ul>
 
-        <a class="mr-2" style="cursor: pointer;">
-            <i #anchor1 (click)="onToggle()" class="icon ion-ios-bell-outline menu-logo mx-3"></i>
-        </a>
-        <a #anchor2 (click)="onToggle2()" style="cursor: pointer;">
-            <span class="text-light mr-2">{{ username }}</span>
-            <span style="color:white; font-size: 25px;" class="k-icon k-i-user"></span>
+        <a class="mr-2" (click)="logout()" style="cursor: pointer; color:white">
+            Logout
         </a>
 
     </div>

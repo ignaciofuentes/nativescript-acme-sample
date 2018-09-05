@@ -1,7 +1,8 @@
-import { Routes } from '@angular/router';
+import { Routes } from "@angular/router";
 
-import { TicketsComponent } from './tickets/tickets.component';
-import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
+import { TicketsComponent } from "./tickets/tickets.component";
+import { TicketDetailComponent } from "./ticket-detail/ticket-detail.component";
+import { LoggedInGuard } from "../logged-in.guard";
 
 export const COMPONENT_DECLARATIONS: any[] = [
   TicketsComponent,
@@ -9,6 +10,12 @@ export const COMPONENT_DECLARATIONS: any[] = [
 ];
 
 export const ROUTES: Routes = [
-  { path: 'tickets', component: TicketsComponent },
-  { path: 'ticket/:id', component: TicketDetailComponent },
+  {
+    path: "",
+    canActivate: [LoggedInGuard],
+    children: [
+      { path: "tickets", component: TicketsComponent },
+      { path: "ticket/:id", component: TicketDetailComponent }
+    ]
+  }
 ];

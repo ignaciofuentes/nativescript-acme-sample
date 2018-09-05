@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Kinvey, CacheStore } from './utils';
+import { Injectable } from "@angular/core";
+import { Kinvey, CacheStore } from "./utils";
 
 export interface Ticket {
   _id: string;
@@ -11,7 +11,7 @@ export interface Ticket {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class BackendService {
   private user: Kinvey.User;
@@ -19,11 +19,11 @@ export class BackendService {
 
   constructor() {
     Kinvey.init({
-      appKey: 'kid_rkDJUINIQ',
-      appSecret: '17282f9d91da4af7b398855e32ea4dd0'
+      appKey: "kid_rkDJUINIQ",
+      appSecret: "17282f9d91da4af7b398855e32ea4dd0"
     });
 
-    this.ticketsStore = Kinvey.DataStore.collection<Ticket>('tickets');
+    this.ticketsStore = Kinvey.DataStore.collection<Ticket>("tickets");
   }
 
   async login(username: string, password: string): Promise<Kinvey.User> {
@@ -33,14 +33,22 @@ export class BackendService {
     return this.user;
   }
 
+  logout(): Promise<void> {
+    return Kinvey.User.logout();
+  }
+
+  isLoggedIn(): boolean {
+    return Kinvey.User.getActiveUser() != null;
+  }
+
   async sampleLogin() {
-    console.warn('remove this function from the production app');
+    console.warn("remove this function from the production app");
     await Kinvey.User.logout();
-    this.user = await Kinvey.User.login('admin', 'admin');
+    this.user = await Kinvey.User.login("admin", "admin");
   }
 
   async getTickets(): Promise<Ticket[]> {
-    await this.sampleLogin();
+    //await this.sampleLogin();
 
     return this.ticketsStore.find().toPromise();
   }
@@ -65,5 +73,4 @@ export class BackendService {
   removeTicket(id: string) {
     this.ticketsStore.removeById(id);
   }
-
 }
