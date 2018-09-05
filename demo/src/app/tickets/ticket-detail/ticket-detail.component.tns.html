@@ -1,28 +1,37 @@
-<DockLayout tkMainContent stretchLastChild="true" class="page">
-  <app-nav-bar [index]="0"></app-nav-bar>
+<RadSideDrawer drawerLocation="Bottom">
+  <StackLayout tkDrawerContent class="drawer">
+    <Label class="my-label" text="Edit Ticket Status" horizontalAlignment="center"></Label>
+    <Button (tap)="changeStatus('Closed')" class="my-button" text="Close Ticket"></Button>
+    <Button (tap)="changeStatus('New')" class="my-cancel-button" text="Open Ticket"></Button>
+    <Button (tap)="onCloseDrawerTap()" class="my-cancel-button" text="Cancel"></Button>
+  </StackLayout>
 
-  <GridLayout rows="auto, auto, *">
-    <GridLayout row="0" columns="100, *, 100" class="action-bar">
-      <Label col="0" text="< Tickets" [nsRouterLink]="['/tickets']" pageTransition="none"></Label>
-      <Image col="1" src="~/app/images/logo.png" class="action-bar-logo"></Image>
-      <!--<Button col="2" (tap)="onOpenDrawerTap()" text="Edit"></Button>-->
-    </GridLayout>
+  <DockLayout tkMainContent stretchLastChild="true" class="page">
+    <app-nav-bar [index]="0"></app-nav-bar>
 
-    <StackLayout row="1" *ngIf="ticket" class="image-container">
-      <Image [src]="ticket.photo"></Image>
-    </StackLayout>
-
-    <StackLayout row="2" class="container" *ngIf="ticket">
-      <Label [text]="ticket.ticketid" class="order-id"></Label>
-      <GridLayout columns="auto, *, auto" height="30">
-        <Label col="0" [text]="ticket.title" class="order-location"></Label>
-        <Label col="2" [color]="getStatusColor(ticket.status)" [text]="ticket.status" class="order-status"></Label>
+    <GridLayout rows="auto, auto, *">
+      <GridLayout row="0" columns="100, *, 100" class="action-bar">
+        <Label col="0" text="< Tickets" [nsRouterLink]="['/tickets']" pageTransition="none"></Label>
+        <Image col="1" src="~/app/images/logo.png" class="action-bar-logo"></Image>
+        <Button col="2" (tap)="onOpenDrawerTap()" text="Edit"></Button>
       </GridLayout>
 
-      <StackLayout class="hr-light"></StackLayout>
+      <StackLayout row="1" *ngIf="ticket" class="image-container">
+        <Image [src]="ticket.photo"></Image>
+      </StackLayout>
 
-      <Label [text]="ticket.body" textWrap="true"></Label>
-      <Button class="view" text="View Equipment" [nsRouterLink]="['/equipment']"></Button>
-    </StackLayout>
-  </GridLayout>
-</DockLayout>
+      <StackLayout row="2" class="container" *ngIf="ticket">
+        <Label [text]="ticket.ticketid" class="order-id"></Label>
+        <GridLayout columns="auto, *, auto" height="30">
+          <Label col="0" [text]="ticket.title" class="order-location"></Label>
+          <Label col="2" [color]="getStatusColor(ticket.status)" [text]="ticket.status" class="order-status"></Label>
+        </GridLayout>
+
+        <StackLayout class="hr-light"></StackLayout>
+
+        <Label [text]="ticket.body" textWrap="true"></Label>
+        <Button class="view" text="View Equipment" [nsRouterLink]="['/equipment']"></Button>
+      </StackLayout>
+    </GridLayout>
+  </DockLayout>
+</RadSideDrawer>

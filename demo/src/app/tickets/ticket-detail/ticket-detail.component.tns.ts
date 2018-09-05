@@ -1,5 +1,6 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
 import { Page } from "tns-core-modules/ui/page";
 
 import { BackendService, Ticket } from '../../backend.service';
@@ -11,7 +12,10 @@ import { BackendService, Ticket } from '../../backend.service';
   moduleId: module.id
 })
 export class TicketDetailComponent implements OnInit {
-    ticket: Ticket;
+  ticket: Ticket;
+
+  @ViewChild(RadSideDrawerComponent)
+  public drawerComponent: RadSideDrawerComponent;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +37,18 @@ export class TicketDetailComponent implements OnInit {
 
   async loadData(id: string) {
     this.ticket = await this.backendService.getTicketById(id);
+  }
+
+  onOpenDrawerTap() {
+    this.drawerComponent.sideDrawer.showDrawer();
+  }
+  onCloseDrawerTap() {
+    this.drawerComponent.sideDrawer.closeDrawer();
+  }
+
+  async changeStatus(status) {
+    this.ticket.status = status;
+    await this.backendService.editTicketStatus(this.ticket);
   }
 
   getStatusColor(status) {
