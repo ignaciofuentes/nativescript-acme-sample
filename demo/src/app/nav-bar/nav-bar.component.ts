@@ -28,6 +28,7 @@ export class NavBarComponent {
         this.isIPhoneX = true;
         application.addCss(`
           .action-bar { padding-top: 0; }
+          Page { margin-bottom: -30; }
         `);
       }
     }

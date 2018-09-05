@@ -5,6 +5,7 @@ import { BackendService, Ticket } from '../../backend.service';
 @Component({
   selector: 'app-details',
   templateUrl: './ticket-detail.component.html',
+  styleUrls: ["./ticket-detail.component.css"]
 })
 export class TicketDetailComponent implements OnInit {
   ticket: Ticket;

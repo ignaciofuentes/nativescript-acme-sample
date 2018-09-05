@@ -43,7 +43,6 @@ export class LoginComponent {
         }
     }
 
-    
     async loginWithMIC() {
         this.processing = true;
         try {

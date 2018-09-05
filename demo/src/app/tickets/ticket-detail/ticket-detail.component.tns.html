@@ -1,6 +1,28 @@
-<ActionBar title="Ticket Details: {{ ticket?.status}}" class="action-bar"></ActionBar>
+<DockLayout tkMainContent stretchLastChild="true" class="page">
+  <app-nav-bar [index]="0"></app-nav-bar>
 
-<StackLayout *ngIf="ticket" class="m-15">
-  <Label class="h3" [text]="ticket.body" textWrap="true"></Label>
-  <Button text="Go Back" nsRouterLink="/tickets" clearHistory="true" class="btn btn-primary"></Button>
-</StackLayout>
+  <GridLayout rows="auto, auto, *">
+    <GridLayout row="0" columns="100, *, 100" class="action-bar">
+      <Label col="0" text="< Tickets" [nsRouterLink]="['/tickets']" pageTransition="none"></Label>
+      <Image col="1" src="~/app/images/logo.png" class="action-bar-logo"></Image>
+      <!--<Button col="2" (tap)="onOpenDrawerTap()" text="Edit"></Button>-->
+    </GridLayout>
+
+    <StackLayout row="1" *ngIf="order" class="image-container">
+      <Image [src]="order.photo"></Image>
+    </StackLayout>
+
+    <StackLayout row="2" class="container" *ngIf="order">
+      <Label [text]="ticket.ticketid" class="order-id"></Label>
+      <GridLayout columns="auto, *, auto" height="30">
+        <Label col="0" [text]="ticket.location" class="order-location"></Label>
+        <Label col="2" [color]="getStatusColor(order.status)" [text]="order.status" class="order-status"></Label>
+      </GridLayout>
+
+      <StackLayout class="hr-light"></StackLayout>
+
+      <Label [text]="ticket.description" textWrap="true"></Label>
+      <Button class="view" text="View Equipment" [nsRouterLink]="['/equipment']"></Button>
+    </StackLayout>
+  </GridLayout>
+</DockLayout>
