@@ -37,7 +37,11 @@ export class TicketsComponent implements OnInit {
     }
   }
   async markClosed(ticket) {
-    ticket.status = "Closed";
+    if (ticket.status == "Closed") {
+      ticket.status = " New";
+    } else {
+      ticket.status = "Closed";
+    }
     await this.backendService.editTicketStatus(ticket);
     alert("Success!");
   }

@@ -4,7 +4,7 @@
     <!-- {{ tickets$ | async }} -->
 
     <div *ngFor="let ticket of tickets" [routerLink]="['/ticket', ticket._id]">
-      <h3>{{ ticket.body }}</h3>
+      <h3>{{ ticket.body }}</h3><span>{{ticket.status}}</span>
       <a (click)="markClosed(ticket)">Mark Closed</a>
     </div>
   </div>
