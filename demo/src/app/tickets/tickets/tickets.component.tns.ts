@@ -1,36 +1,36 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone } from "@angular/core";
 import { Page } from "tns-core-modules/ui/page";
 
-import { BackendService, Ticket } from '../../backend.service';
+import { BackendService, Ticket } from "../../backend.service";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'app-tickets',
-  templateUrl: './tickets.component.html',
+  selector: "app-tickets",
+  templateUrl: "./tickets.component.html",
   styleUrls: ["./tickets.component.css"]
 })
 export class TicketsComponent implements OnInit {
-  tickets: Ticket[] = [];
-  listLoaded;
-  isLoading;
+  tickets: Observable<Ticket[]>;
+  listLoaded: boolean;
+  isLoading: boolean;
 
   constructor(
     private zone: NgZone,
     private backendService: BackendService,
-    private page: Page) {
-        this.page.actionBarHidden = true;
-        this.page.backgroundSpanUnderStatusBar = true;
-    }
+    private page: Page
+  ) {
+    this.page.actionBarHidden = true;
+    this.page.backgroundSpanUnderStatusBar = true;
+  }
 
   ngOnInit() {
     this.listLoaded = false;
     this.isLoading = true;
-    this.zone.run(
-      () => this.loadData()
-    );
+    this.zone.run(() => this.loadData());
   }
 
   async loadData() {
-    this.tickets = await this.backendService.getTickets();
+    this.tickets = this.backendService.getTickets();
     this.isLoading = false;
     this.listLoaded = true;
   }
@@ -45,4 +45,3 @@ export class TicketsComponent implements OnInit {
     }
   }
 }
-

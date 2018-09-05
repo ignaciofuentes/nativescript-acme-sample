@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Kinvey, CacheStore } from "./utils";
+import { Observable } from "rxjs";
 
 export interface Ticket {
   _id: string;
@@ -33,7 +34,7 @@ export class BackendService {
   }
 
   async loginWithMIC(): Promise<Kinvey.User> {
-    this.user = await Kinvey.User.loginWithMIC("http://localhost:8100");
+    this.user = await Kinvey.User.loginWithMIC("http://localhost:4200");
 
     return this.user;
   }
@@ -46,33 +47,18 @@ export class BackendService {
     return Kinvey.User.getActiveUser() != null;
   }
 
-  async getTickets(): Promise<Ticket[]> {
-    return this.ticketsStore.find().toPromise();
+  getTickets(): Observable<Ticket[]> {
+    return this.ticketsStore.find();
   }
 
-  async getTicketById(id: string): Promise<Ticket> {
-    return this.ticketsStore.findById(id).toPromise();
+  getTicketById(id: string): Observable<Ticket> {
+    return this.ticketsStore.findById(id);
   }
 
-  /*addTicket(id: string, body: string, status: string = 'open') {
-    const newTicket: Ticket = {
-      userId: this.user._id,
-      _id: id,
-      body,
-      status,
-    };
-
-    this.ticketsStore.save(newTicket);
-  }*/
-
-  editTicketStatus(ticket: Ticket) {
-    this.ticketsStore.save({
+  editTicketStatus(ticket: Ticket): Promise<Ticket> {
+    return this.ticketsStore.save({
       _id: ticket._id,
       status: ticket.status
     });
-  }
-
-  removeTicket(id: string) {
-    this.ticketsStore.removeById(id);
   }
 }

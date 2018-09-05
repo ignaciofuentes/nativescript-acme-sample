@@ -6,19 +6,21 @@
       <Image src="~/app/images/logo.png" class="action-bar-logo"></Image>
     </StackLayout>
 
-    <ListView row="1" [items]="tickets" class="list-group" [class.visible]="listLoaded">
+    <ListView row="1" [items]="tickets | async" class="list-group" [class.visible]="listLoaded">
       <ng-template let-ticket="item">
         <StackLayout [nsRouterLink]="['/ticket', ticket._id]" pageTransition="none">
           <GridLayout class="item-container" rows="auto, auto" columns="auto, *, 110">
             <Label col="0" rowSpan="2" class="ion list-icon" text="&#xf471;"></Label>
             <Label col="1" row="0" class="list-order" [text]="ticket.ticketid"></Label>
             <Label col="1" row="1" class="list-location" [text]="ticket.title"></Label>
-            <Label col="2" row="0" rowSpan="2" class="list-status bold" [color]="getStatusColor(ticket.status)" [text]="ticket.status" textTransform="uppercase"></Label>
+            <Label col="2" row="0" rowSpan="2" class="list-status bold" [color]="getStatusColor(ticket.status)" [text]="ticket.status"
+              textTransform="uppercase"></Label>
           </GridLayout>
         </StackLayout>
       </ng-template>
     </ListView>
 
-    <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+    <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center"
+      verticalAlignment="center"></ActivityIndicator>
   </GridLayout>
 </DockLayout>

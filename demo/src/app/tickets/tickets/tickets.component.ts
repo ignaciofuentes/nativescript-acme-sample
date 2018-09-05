@@ -9,20 +9,25 @@ import { tick } from "@angular/core/testing";
   styleUrls: ["./tickets.component.css"]
 })
 export class TicketsComponent implements OnInit {
-  tickets: Ticket[] = [];
-  listLoaded;
-  isLoading;
+  tickets: Ticket[];
+  listLoaded: boolean;
+  isLoading: boolean;
 
   constructor(private zone: NgZone, private backendService: BackendService) {}
 
   ngOnInit() {
     this.listLoaded = false;
     this.isLoading = true;
-    this.zone.run(() => this.loadData());
+    this.loadData();
   }
 
-  async loadData() {
-    this.tickets = await this.backendService.getTickets();
+  loadData() {
+    this.backendService.getTickets().subscribe(data => {
+      this.zone.run(() => {
+        console.log(data);
+        this.tickets = data;
+      });
+    });
     this.isLoading = false;
     this.listLoaded = true;
   }
@@ -38,7 +43,7 @@ export class TicketsComponent implements OnInit {
   }
   async markClosed(ticket) {
     if (ticket.status == "Closed") {
-      ticket.status = " New";
+      ticket.status = "testing";
     } else {
       ticket.status = "Closed";
     }

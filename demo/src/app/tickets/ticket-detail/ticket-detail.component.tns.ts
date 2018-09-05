@@ -1,9 +1,11 @@
-import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
+import { Component, OnInit, NgZone, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
 import { Page } from "tns-core-modules/ui/page";
 
-import { BackendService, Ticket } from '../../backend.service';
+import { BackendService, Ticket } from "../../backend.service";
+import { Observable, BehaviorSubject } from "rxjs";
+import { stat } from "fs";
 
 @Component({
   selector: "app-details",
@@ -28,15 +30,15 @@ export class TicketDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id: string = this.route.snapshot.params['id'];
+    const id: string = this.route.snapshot.params["id"];
 
-    this.zone.run(
-      () => this.loadData(id)
-    );
+    this.zone.run(() => this.loadData(id));
   }
 
-  async loadData(id: string) {
-    this.ticket = await this.backendService.getTicketById(id);
+  loadData(id: string) {
+    this.backendService
+      .getTicketById(id)
+      .subscribe(ticket => (this.ticket = ticket));
   }
 
   onOpenDrawerTap() {
