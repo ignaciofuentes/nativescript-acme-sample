@@ -17,7 +17,6 @@ export class LoggedInGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    console.log("checking if aithetincated");
     if (this.service.isLoggedIn()) {
       return true;
     } else {

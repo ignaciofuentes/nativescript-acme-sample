@@ -41,21 +41,11 @@ export class BackendService {
     return Kinvey.User.getActiveUser() != null;
   }
 
-  async sampleLogin() {
-    console.warn("remove this function from the production app");
-    await Kinvey.User.logout();
-    this.user = await Kinvey.User.login("admin", "admin");
-  }
-
   async getTickets(): Promise<Ticket[]> {
-    //await this.sampleLogin();
-
     return this.ticketsStore.find().toPromise();
   }
 
   async getTicketById(id: string): Promise<Ticket> {
-    await this.sampleLogin();
-
     return this.ticketsStore.findById(id).toPromise();
   }
 
