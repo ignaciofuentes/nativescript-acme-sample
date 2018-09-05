@@ -1,7 +1,10 @@
-<h1>Tickets</h1>
+<div class="row">
+  <div class="col-sm-7 my-4">
+    <h1>Tickets</h1>
+    <!-- {{ tickets$ | async }} -->
 
-<div *ngFor="let ticket of tickets" [routerLink]="['/ticket', ticket._id]">
-  <h3>{{ ticket.body }}</h3>
+    <div *ngFor="let ticket of tickets" [routerLink]="['/ticket', ticket._id]">
+      <h3>{{ ticket.body }}</h3>
+    </div>
+  </div>
 </div>
-
-<!-- {{ tickets$ | async }} -->
