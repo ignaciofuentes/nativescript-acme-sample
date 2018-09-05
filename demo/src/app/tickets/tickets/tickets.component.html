@@ -5,6 +5,7 @@
 
     <div *ngFor="let ticket of tickets" [routerLink]="['/ticket', ticket._id]">
       <h3>{{ ticket.body }}</h3>
+      <a (click)="markClosed(ticket)">Mark Closed</a>
     </div>
   </div>
 </div>

@@ -1,10 +1,11 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone } from "@angular/core";
 
-import { BackendService, Ticket } from '../../backend.service';
+import { BackendService, Ticket } from "../../backend.service";
+import { tick } from "@angular/core/testing";
 
 @Component({
-  selector: 'app-tickets',
-  templateUrl: './tickets.component.html',
+  selector: "app-tickets",
+  templateUrl: "./tickets.component.html",
   styleUrls: ["./tickets.component.css"]
 })
 export class TicketsComponent implements OnInit {
@@ -12,16 +13,12 @@ export class TicketsComponent implements OnInit {
   listLoaded;
   isLoading;
 
-  constructor(
-    private zone: NgZone,
-    private backendService: BackendService) { }
+  constructor(private zone: NgZone, private backendService: BackendService) {}
 
   ngOnInit() {
     this.listLoaded = false;
     this.isLoading = true;
-    this.zone.run(
-      () => this.loadData()
-    );
+    this.zone.run(() => this.loadData());
   }
 
   async loadData() {
@@ -39,5 +36,9 @@ export class TicketsComponent implements OnInit {
       return "#D63100"; // red
     }
   }
+  async markClosed(ticket) {
+    ticket.status = "Closed";
+    await this.backendService.editTicketStatus(ticket);
+    alert("Success!");
+  }
 }
-

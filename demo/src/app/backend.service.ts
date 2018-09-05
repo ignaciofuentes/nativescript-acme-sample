@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Kinvey, CacheStore } from "./utils";
+import { tick } from "@angular/core/testing";
 
 export interface Ticket {
   _id: string;
-  userId: string;
-  ticketId: string;
-  title: string;
-  status: string;
-  body: string;
+  userId?: string;
+  ticketId?: string;
+  title?: string;
+  status?: string;
+  body?: string;
 }
 
 @Injectable({
@@ -59,6 +60,13 @@ export class BackendService {
 
     this.ticketsStore.save(newTicket);
   }*/
+
+  editTicketStatus(ticket: Ticket) {
+    this.ticketsStore.save({
+      _id: ticket._id,
+      status: ticket.status
+    });
+  }
 
   removeTicket(id: string) {
     this.ticketsStore.removeById(id);
