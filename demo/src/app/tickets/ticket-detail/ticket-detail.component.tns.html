@@ -2,8 +2,9 @@
   <StackLayout tkDrawerContent class="drawer">
     <Label class="my-label" text="Edit Ticket Status" horizontalAlignment="center"></Label>
     <Button (tap)="changeStatus('Closed')" class="my-button" text="Close Ticket"></Button>
+    <Button (tap)="changeStatus('Working')" class="my-button" text="Working"></Button>
     <Button (tap)="changeStatus('New')" class="my-cancel-button" text="Open Ticket"></Button>
-    <Button (tap)="onCloseDrawerTap()" class="my-cancel-button" text="Cancel"></Button>
+    <!-- <Button (tap)="onCloseDrawerTap()" class="my-cancel-button" text="Cancel"></Button> -->
   </StackLayout>
 
   <DockLayout tkMainContent stretchLastChild="true" class="page">
