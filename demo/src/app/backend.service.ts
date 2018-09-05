@@ -27,8 +27,13 @@ export class BackendService {
   }
 
   async login(username: string, password: string): Promise<Kinvey.User> {
-    await Kinvey.User.logout();
     this.user = await Kinvey.User.login(username, password);
+
+    return this.user;
+  }
+
+  async loginWithMIC(): Promise<Kinvey.User> {
+    this.user = await Kinvey.User.loginWithMIC("http://localhost:8100");
 
     return this.user;
   }
