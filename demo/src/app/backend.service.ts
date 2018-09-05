@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Kinvey, CacheStore } from "./utils";
-import { tick } from "@angular/core/testing";
 
 export interface Ticket {
   _id: string;
