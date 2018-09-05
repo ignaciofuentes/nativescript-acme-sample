@@ -43,10 +43,12 @@ export class LoginComponent {
         }
     }
 
+    
     async loginWithMIC() {
         this.processing = true;
         try {
-            const user = await this.backendService.sampleLogin();
+            // TODO: Eventually replace this with a MIC login
+            const user = await this.backendService.login(this.name, this.password);
             this.processing = false;
             this.navigateToTickets();
             console.log("user: " + JSON.stringify(user));
