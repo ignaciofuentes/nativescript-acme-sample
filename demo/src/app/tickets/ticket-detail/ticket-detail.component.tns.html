@@ -8,20 +8,20 @@
       <!--<Button col="2" (tap)="onOpenDrawerTap()" text="Edit"></Button>-->
     </GridLayout>
 
-    <StackLayout row="1" *ngIf="order" class="image-container">
-      <Image [src]="order.photo"></Image>
+    <StackLayout row="1" *ngIf="ticket" class="image-container">
+      <Image [src]="ticket.photo"></Image>
     </StackLayout>
 
-    <StackLayout row="2" class="container" *ngIf="order">
+    <StackLayout row="2" class="container" *ngIf="ticket">
       <Label [text]="ticket.ticketid" class="order-id"></Label>
       <GridLayout columns="auto, *, auto" height="30">
-        <Label col="0" [text]="ticket.location" class="order-location"></Label>
-        <Label col="2" [color]="getStatusColor(order.status)" [text]="order.status" class="order-status"></Label>
+        <Label col="0" [text]="ticket.title" class="order-location"></Label>
+        <Label col="2" [color]="getStatusColor(ticket.status)" [text]="ticket.status" class="order-status"></Label>
       </GridLayout>
 
       <StackLayout class="hr-light"></StackLayout>
 
-      <Label [text]="ticket.description" textWrap="true"></Label>
+      <Label [text]="ticket.body" textWrap="true"></Label>
       <Button class="view" text="View Equipment" [nsRouterLink]="['/equipment']"></Button>
     </StackLayout>
   </GridLayout>
