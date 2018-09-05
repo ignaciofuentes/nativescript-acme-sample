@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 export interface Ticket {
   _id: string;
   userId?: string;
-  ticketId?: string;
+  ticketid?: string;
   title?: string;
   status?: string;
   body?: string;
@@ -56,9 +56,7 @@ export class BackendService {
   }
 
   editTicketStatus(ticket: Ticket): Promise<Ticket> {
-    return this.ticketsStore.save({
-      _id: ticket._id,
-      status: ticket.status
-    });
+    delete ticket.ticketid;
+    return this.ticketsStore.save(ticket);
   }
 }

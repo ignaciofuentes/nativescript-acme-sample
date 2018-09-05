@@ -7,6 +7,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TicketsModule } from './tickets/tickets.module';
 import { BackendService } from "./backend.service";
+import { GridModule } from '@progress/kendo-angular-grid';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+
+
+
 
 @NgModule({
   declarations: [
@@ -17,7 +23,10 @@ import { BackendService } from "./backend.service";
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    TicketsModule
+    TicketsModule,
+    GridModule,
+    BrowserAnimationsModule,
+    ButtonsModule
   ],
   providers: [
     BackendService
