@@ -31,12 +31,13 @@ export class TicketsComponent implements OnInit {
   }
 
   getStatusColor(status) {
-    if (status == "Completed" || status == "Resolved") {
-      return "#00880A";
-    } else if (status == "Open") {
-      return "#DDAA00";
+    if (status == "New") {
+      return "#00880A"; // green
+    } else if (status == "Closed") {
+      return "#DDAA00"; // yellow
     } else {
-      return "#D63100";
+      return "#D63100"; // red
     }
   }
 }
+
