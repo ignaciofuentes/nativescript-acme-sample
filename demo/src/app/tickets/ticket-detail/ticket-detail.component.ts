@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+
 import { BackendService, Ticket } from "../../backend.service";
-import { Observable } from "rxjs";
 
 @Component({
   selector: "app-details",

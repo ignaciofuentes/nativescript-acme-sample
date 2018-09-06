@@ -4,8 +4,7 @@ import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
 import { Page } from "tns-core-modules/ui/page";
 
 import { BackendService, Ticket } from "../../backend.service";
-import { Observable, BehaviorSubject } from "rxjs";
-import { stat } from "fs";
+import { ColorUtility } from "../../utils/colors";
 
 @Component({
   selector: "app-details",
@@ -55,12 +54,6 @@ export class TicketDetailComponent implements OnInit {
   }
 
   getStatusColor(status) {
-    if (status == "New") {
-      return "#00880A"; // green
-    } else if (status == "Closed") {
-      return "#DDAA00"; // yellow
-    } else {
-      return "#D63100"; // red
-    }
+    return ColorUtility.getStatusColor(status);
   }
 }

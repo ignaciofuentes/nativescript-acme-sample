@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone } from "@angular/core";
 
 import { BackendService, Ticket } from "../../backend.service";
-import { tick } from "@angular/core/testing";
+import { ColorUtility } from "../../utils/colors";
 
 @Component({
   selector: "app-tickets",
@@ -33,13 +33,7 @@ export class TicketsComponent implements OnInit {
   }
 
   getStatusColor(status) {
-    if (status == "New") {
-      return "#00880A"; // green
-    } else if (status == "Closed") {
-      return "#DDAA00"; // yellow
-    } else {
-      return "#D63100"; // red
-    }
+    return ColorUtility.getStatusColor(status);
   }
   async setStatus(ticket: Ticket, status) {
     ticket.Status = status;
