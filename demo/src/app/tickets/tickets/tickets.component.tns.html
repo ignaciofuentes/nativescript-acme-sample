@@ -9,10 +9,10 @@
     <ListView row="1" [items]="tickets | async" class="list-group" [class.visible]="listLoaded">
       <ng-template let-ticket="item">
         <StackLayout [nsRouterLink]="['/ticket', ticket._id]" pageTransition="none">
-          <GridLayout class="item-container" rows="auto, auto" columns="auto, *, 110">
+          <GridLayout class="item-container" rows="auto, auto" columns="auto, *, 70">
             <Label col="0" rowSpan="2" class="ion list-icon" text="&#xf471;"></Label>
             <Label col="1" row="0" class="list-order" [text]="ticket.CaseNumber"></Label>
-            <Label col="1" row="1" class="list-location" [text]="ticket.Subject"></Label>
+            <Label col="1" row="1" class="list-location" [text]="ticket.Subject" textWrap="true"></Label>
             <Label col="2" row="0" rowSpan="2" class="list-status bold" [color]="getStatusColor(ticket.Status)" [text]="ticket.Status"
               textTransform="uppercase"></Label>
           </GridLayout>
