@@ -44,14 +44,11 @@ export class LoginComponent {
   }
 
   async loginWithMIC() {
-    this.processing = true;
     try {
       const user = await this.backendService.loginWithMIC();
-      this.processing = false;
       this.navigateToTickets();
       console.log("user: " + JSON.stringify(user));
     } catch (error) {
-      this.processing = false;
       alert("An error occurred. Check your Kinvey settings.");
       console.log("error: " + error);
     }
