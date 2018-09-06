@@ -51,7 +51,9 @@ export class BackendService {
   }
 
   getTickets(): Observable<Ticket[]> {
-    return this.ticketsStore.find();
+    const query = new Kinvey.Query();
+    query.ascending("CaseNumber");
+    return this.ticketsStore.find(query);
   }
 
   getTicketById(id: string): Observable<Ticket> {
