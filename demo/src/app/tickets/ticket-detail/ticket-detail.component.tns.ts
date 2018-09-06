@@ -49,7 +49,7 @@ export class TicketDetailComponent implements OnInit {
   }
 
   async changeStatus(status) {
-    this.ticket.status = status;
+    this.ticket.Status = status;
     await this.backendService.editTicketStatus(this.ticket);
     this.drawerComponent.sideDrawer.closeDrawer();
   }

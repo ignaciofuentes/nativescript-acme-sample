@@ -41,8 +41,8 @@ export class TicketsComponent implements OnInit {
       return "#D63100"; // red
     }
   }
-  async setStatus(ticket, status) {
-    ticket.status = status;
+  async setStatus(ticket: Ticket, status) {
+    ticket.Status = status;
 
     await this.backendService.editTicketStatus(ticket);
   }

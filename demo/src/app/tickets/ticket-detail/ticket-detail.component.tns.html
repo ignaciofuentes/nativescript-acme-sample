@@ -22,10 +22,10 @@
       </StackLayout>
 
       <StackLayout row="2" class="container" *ngIf="ticket">
-        <Label [text]="ticket.ticketid" class="order-id"></Label>
+        <Label [text]="ticket.CaseNumber" class="order-id"></Label>
         <GridLayout columns="auto, *, auto" height="30">
-          <Label col="0" [text]="ticket.title" class="order-location"></Label>
-          <Label col="2" [color]="getStatusColor(ticket.status)" [text]="ticket.status" class="order-status"></Label>
+          <Label col="0" [text]="ticket.Description" class="order-location"></Label>
+          <Label col="2" [color]="getStatusColor(ticket.Status)" [text]="ticket.Status" class="order-status"></Label>
         </GridLayout>
 
         <StackLayout class="hr-light"></StackLayout>

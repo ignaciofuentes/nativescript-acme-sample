@@ -4,11 +4,14 @@ import { Observable } from "rxjs";
 
 export interface Ticket {
   _id: string;
-  userId?: string;
-  ticketid?: string;
-  title?: string;
-  status?: string;
-  body?: string;
+  CaseNumber?: string;
+  Type?: string;
+  Status?: string;
+  Reason?: string;
+  Origin?: string;
+  Subject?: string;
+  Priority?: string;
+  Description?: string;
 }
 
 @Injectable({
@@ -56,7 +59,7 @@ export class BackendService {
   }
 
   editTicketStatus(ticket: Ticket): Promise<Ticket> {
-    delete ticket.ticketid;
+    delete ticket.CaseNumber;
     return this.ticketsStore.save(ticket);
   }
 }

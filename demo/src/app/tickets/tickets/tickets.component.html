@@ -4,20 +4,21 @@
 
     <!-- {{ tickets$ | async }} -->
 
-    <kendo-grid [kendoGridBinding]="tickets" [pageSize]="10" [selectable]="{mode:single}" [pageable]="true" [height]="600" [filterable]="true">
+    <kendo-grid [kendoGridBinding]="tickets" [pageSize]="10" [selectable]="{mode:single}" [pageable]="true" [height]="600"
+      [filterable]="true">
       <kendo-grid-column field="_id" title="ID" width="40" media="(min-width: 450px)">
       </kendo-grid-column>
-      <kendo-grid-column field="title" title="TYPE" width="40" media="(min-width: 450px)">
+      <kendo-grid-column field="Subject" title="SUBJECT" width="40" media="(min-width: 450px)">
       </kendo-grid-column>
-      <kendo-grid-column field="body" title="BODY" width="40" media="(min-width: 450px)">
+      <kendo-grid-column field="Description" title="DESCRIPTION" width="40" media="(min-width: 450px)">
       </kendo-grid-column>
-      <kendo-grid-column field="status" title="STATUS" width="40" media="(min-width: 450px)">
+      <kendo-grid-column field="Status" title="STATUS" width="40" media="(min-width: 450px)">
         <ng-template kendoGridCellTemplate let-dataItem>
-          <span [className]="dataItem.status==='New' ? 'text-success' : dataItem.status=== 'Closed' ? 'text-warning':'text-danger'">
-            {{ dataItem.status }}</span>
+          <span [className]="dataItem.Status==='New' ? 'text-success' : dataItem.Status=== 'Closed' ? 'text-warning':'text-danger'">
+            {{ dataItem.Status }}</span>
         </ng-template>
       </kendo-grid-column>
-      <kendo-grid-command-column title="ACTIONS" width="40">
+      <kendo-grid-command-column title="ACTIONS" width="40" media="(min-width: 450px)">
         <ng-template kendoGridCellTemplate let-dataItem>
           <kendo-dropdownbutton [data]="['New', 'Closed', 'Working']" [icon]="'list-unordered'" (itemClick)="setStatus(dataItem, $event)">
             Set Status
@@ -31,11 +32,11 @@
           <dl>
             <dt class="font-weight-bold">TICKET ID</dt>
             <dd>{{ dataItem._id }}</dd>
-            <dt class="font-weight-bold">TYPE</dt>
-            <dd>{{ dataItem.title }}</dd>
+            <dt class="font-weight-bold">SUBJECT</dt>
+            <dd>{{ dataItem.Subject }}</dd>
             <dt>STATUS</dt>
-            <dd [className]="dataItem.status==='New' ? 'text-success' : dataItem.status=== 'Closed' ? 'text-warning':'text-danger'">
-              {{ dataItem.status }}</dd>
+            <dd [className]="dataItem.Status==='New' ? 'text-success' : dataItem.status=== 'Closed' ? 'text-warning':'text-danger'">
+              {{ dataItem.Status }}</dd>
           </dl>
         </ng-template>
       </kendo-grid-column>
