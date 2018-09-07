@@ -1,27 +1,47 @@
-import { Component } from '@angular/core';
-import { NavigationExtras } from '@angular/router';
-
-import { BackendService } from '../backend.service';
-import { Router } from '../utils';
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { Router } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { BackendService } from "../backend.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"]
 })
-export class LoginComponent {
-  public username = 'test';
-  public password = 'test';
-
+export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  createForm(): any {
+    this.loginForm = this.fb.group({
+      name: ["admin", Validators.required],
+      password: ["admin", Validators.required]
+    });
+  }
   constructor(
-    private backendService: BackendService,
-    private router: Router
-  ) { }
+    private service: BackendService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.createForm();
+  }
+
+  ngOnInit() {}
 
   async login() {
-    /*const user =*/await this.backendService.login(this.username, this.password);
-    const extras = { clearHistory: true } as NavigationExtras;
+    let { name, password } = this.loginForm.value;
+    try {
+      await this.service.login(name, password);
+      this.router.navigate([""]);
+    } catch {
+      alert("auth error");
+    }
+  }
 
-    this.router.navigate(['/tickets'], extras);
+  async loginWithMIC() {
+    try {
+      await this.service.loginWithMIC();
+      this.router.navigate([""]);
+    } catch {
+      alert("auth error");
+    }
   }
 }

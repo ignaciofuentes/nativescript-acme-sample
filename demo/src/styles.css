@@ -70,3 +70,50 @@ body {
 .k-grid-content .k-button {
   margin: 0;
 }
+
+.my-form {
+  color: white;
+  height: 100%;
+  background: linear-gradient(141deg, #4b4e56 0%, #656a75 51%, #494e58 75%);
+}
+.form-signin {
+  height: 100%;
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 6em auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  border-color: #ff6358;
+  box-shadow: none;
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.my-button {
+  background-color: #ff6358 !important;
+  border-radius: 26px;
+  color: white;
+}
+.mic {
+  cursor: pointer;
+  color: white;
+}

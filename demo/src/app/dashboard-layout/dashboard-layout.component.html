@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0">
+  <a class="navbar-brand" routerLink="/">
+    <img src="/assets/logo.png" class="mr-2" width="40" height="40" alt="">
+    <span class="title">ACME Ticketing System</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item pr-4" routerLinkActive="selected" [routerLinkActiveOptions]="{exact:
+                true}">
+        <a routerLink="/tickets" class="nav-link menu-item">
+          <i class="icon ion-ios-list-outline menu-logo mx-2"></i>Tickets
+        </a>
+      </li>
+    </ul>
+
+    <a class="mr-2" (click)="logout()" style="cursor: pointer; color:white">
+      Logout
+    </a>
+
+  </div>
+</nav>
+
+
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

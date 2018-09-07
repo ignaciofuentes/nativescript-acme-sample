@@ -61,7 +61,9 @@ export class BackendService {
   }
 
   editTicketStatus(ticket: Ticket): Promise<Ticket> {
-    delete ticket.CaseNumber;
-    return this.ticketsStore.save(ticket);
+    return this.ticketsStore.save({
+      _id: ticket._id,
+      Status: ticket.Status
+    });
   }
 }

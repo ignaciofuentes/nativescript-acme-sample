@@ -1,9 +1,21 @@
-
-<form>
-  User name:<br>
-  <input type="text" [(ngModel)]="username" name="username"><br>
-  User password:<br>
-  <input type="password" [(ngModel)]="password" name="password">
-</form>
-
-<button (click)="login()">Login</button>
+<div class="my-form container-fluid px-0">
+  <div class="row no-gutters">
+    <div class="col-md-12 text-center d-flex-column align-items-center justify-content-center">
+      <div class="form-signin">
+        <form #f="ngForm" [formGroup]="loginForm" (ngSubmit)="login()">
+          <img class="mb-4" src="assets/logo.png" alt="" width="140" height="140">
+          <h1 class="h3 mb-5 font-weight-normal">ACME Ticketing System</h1>
+          <label for="inputEmail" class="sr-only">Email address</label>
+          <input formControlName="name" type="string" id="inputEmail" class="form-control" placeholder="User" required
+            autofocus>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password"
+            required>
+          <button class="my-button btn btn-lg btn-block" type="submit">Kinvey Mobile ID</button>
+        </form>
+        <p class="mt-5 thing small text-light">Or</p>
+        <p (click)="loginWithMIC()" class="mic text-light">SIGN IN WITH COMPANY CREDENTIALS</p>
+      </div>
+    </div>
+  </div>
+</div>

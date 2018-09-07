@@ -38,6 +38,6 @@ export class TicketsComponent implements OnInit {
   async setStatus(ticket: Ticket, status) {
     ticket.Status = status;
 
-    await this.backendService.editTicketStatus(ticket);
+    ticket = await this.backendService.editTicketStatus(ticket);
   }
 }

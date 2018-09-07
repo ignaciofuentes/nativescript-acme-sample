@@ -9,9 +9,4 @@ import { Router } from "./utils";
 })
 export class AppComponent {
   constructor(private service: BackendService, private router: Router) {}
-
-  async logout() {
-    await this.service.logout();
-    this.router.navigate(["login"]);
-  }
 }
