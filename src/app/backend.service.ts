@@ -63,6 +63,10 @@ export class BackendService {
   editTicketStatus(ticket: Ticket): Promise<Ticket> {
     return this.ticketsStore.save({
       _id: ticket._id,
+
+      Subject: ticket.Subject,
+      Description: ticket.Description,
+      Type: ticket.Type,
       Status: ticket.Status
     });
   }
