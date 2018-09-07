@@ -5,6 +5,7 @@ import { Page } from "tns-core-modules/ui/page";
 
 import { BackendService, Ticket } from "../../backend.service";
 import { ColorUtility } from "../../utils/colors";
+import { Toasty } from "nativescript-toasty";
 
 @Component({
   selector: "app-details",
@@ -48,9 +49,16 @@ export class TicketDetailComponent implements OnInit {
   }
 
   async changeStatus(status) {
-    this.ticket.Status = status;
-    await this.backendService.editTicketStatus(this.ticket);
-    this.drawerComponent.sideDrawer.closeDrawer();
+    try {
+      this.ticket.Status = status;
+      await this.backendService.editTicketStatus(this.ticket);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      this.drawerComponent.sideDrawer.closeDrawer();
+      const toast = new Toasty("Status Updated");
+      toast.show();
+    }
   }
 
   getStatusColor(status) {

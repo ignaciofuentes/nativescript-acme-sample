@@ -66,4 +66,10 @@ export class BackendService {
       Status: ticket.Status
     });
   }
+  pendingSyncCount(): Promise<any> {
+    return this.ticketsStore.pendingSyncCount();
+  }
+  push(): Promise<Kinvey.PushResult<Ticket>[]> {
+    return this.ticketsStore.push();
+  }
 }
