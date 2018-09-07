@@ -60,15 +60,12 @@ export class BackendService {
     return this.ticketsStore.findById(id);
   }
 
-  editTicketStatus(ticket: Ticket): Promise<Ticket> {
-    return this.ticketsStore.save({
-      _id: ticket._id,
-
-      Subject: ticket.Subject,
-      Description: ticket.Description,
-      Type: ticket.Type,
-      Status: ticket.Status
-    });
+  async editTicketStatus(ticket: Ticket): Promise<Ticket> {
+    let caseNum = ticket.CaseNumber;
+    delete ticket.CaseNumber;
+    ticket = await this.ticketsStore.save(ticket);
+    ticket.CaseNumber = caseNum;
+    return ticket;
   }
   pendingSyncCount(): Promise<any> {
     return this.ticketsStore.pendingSyncCount();
