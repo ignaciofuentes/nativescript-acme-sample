@@ -12,6 +12,10 @@ import { GridModule } from "@progress/kendo-angular-grid";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ButtonsModule } from "@progress/kendo-angular-buttons";
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
+
+
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, DashboardLayoutComponent],
@@ -23,7 +27,8 @@ import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.co
     TicketsModule,
     GridModule,
     BrowserAnimationsModule,
-    ButtonsModule
+    ButtonsModule,
+    ChartsModule
   ],
   providers: [BackendService],
   bootstrap: [AppComponent]
