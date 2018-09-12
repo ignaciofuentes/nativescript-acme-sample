@@ -1,20 +1,20 @@
-<GridLayout columns="*, *, *" dock="bottom" class="nav-bar" [class.iPhoneX]="isIPhoneX">
+<GridLayout columns="*, *, *, *" dock="bottom" class="nav-bar" [class.iPhoneX]="isIPhoneX">
     <StackLayout col="0" [nsRouterLink]="['/tickets']" pageTransition="none" clearHistory="true" [class.active]="index == 0">
         <Label class="ion" text="&#xf453;"></Label>
         <Label class="label" text="TICKETS"></Label>
     </StackLayout>
 
-    <!--<StackLayout col="1" [nsRouterLink]="['/alerts']" pageTransition="none" clearHistory="true" [class.active]="index == 1">
-        <Label class="ion" text="&#xf3e1;"></Label>
-        <Label class="label" text="NOTIFICATIONS"></Label>
-    </StackLayout>-->
+    <StackLayout col="1" [nsRouterLink]="['/stats']" pageTransition="none" clearHistory="true" [class.active]="index == 1">
+        <Label class="ion" text="&#xf493;"></Label>
+        <Label class="label" text="STATS"></Label>
+    </StackLayout>
 
-    <StackLayout col="1" [nsRouterLink]="['/equipment']" pageTransition="none" clearHistory="true" [class.active]="index == 1">
+    <StackLayout col="2" [nsRouterLink]="['/equipment']" pageTransition="none" clearHistory="true" [class.active]="index == 2">
         <Label class="ion" text="&#xf25b;"></Label>
         <Label class="label" text="EQUIPMENT"></Label>
     </StackLayout>
 
-    <StackLayout col="2" [nsRouterLink]="['/profile']" pageTransition="none" clearHistory="true" [class.active]="index == 2">
+    <StackLayout col="3" [nsRouterLink]="['/profile']" pageTransition="none" clearHistory="true" [class.active]="index == 3">
         <Label class="ion" text="&#xf47d;"></Label>
         <Label class="label" text="PROFILE"></Label>
     </StackLayout>

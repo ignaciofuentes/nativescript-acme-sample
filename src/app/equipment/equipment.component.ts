@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { registerElement } from "nativescript-angular/element-registry";
-import { AR, ARMaterial, ARNode, ARPlaneTappedEventData } from "nativescript-ar";
+import { AR, ARMaterial, ARPlaneTappedEventData } from "nativescript-ar";
 import { Color } from "tns-core-modules/color";
 import { Page } from "tns-core-modules/ui/page"
 import { isIOS } from "tns-core-modules/platform";

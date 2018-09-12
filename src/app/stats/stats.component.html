@@ -1,0 +1,16 @@
+<DockLayout stretchLastChild="true">
+  <app-nav-bar [index]="1"></app-nav-bar>
+
+  <GridLayout rows="auto, *">
+    <StackLayout row="0" class="action-bar">
+      <Image src="~/app/images/logo.png" class="action-bar-logo"></Image>
+    </StackLayout>
+    <GridLayout row="1"  class="p-10">
+      <RadPieChart allowAnimation="true" row="0">
+        <PieSeries tkPieSeries selectionMode="DataPoint" [items]="ticketData"
+          valueProperty="amount" legendLabel="status"></PieSeries>
+        <RadLegendView tkPieLegend position="Right" title="Status" offsetOrigin="TopRight" enableSelection="true"></RadLegendView>
+      </RadPieChart>
+    </GridLayout>
+  </GridLayout>
+</DockLayout>
