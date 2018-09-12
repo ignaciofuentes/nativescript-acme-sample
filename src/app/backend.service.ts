@@ -61,10 +61,9 @@ export class BackendService {
   }
 
   async editTicketStatus(ticket: Ticket): Promise<Ticket> {
-    let caseNum = ticket.CaseNumber;
-    delete ticket.CaseNumber;
-    ticket = await this.ticketsStore.save(ticket);
-    ticket.CaseNumber = caseNum;
+    const ticketToUpdate = Object.assign({}, ticket);
+    delete ticketToUpdate.CaseNumber;
+    ticket = await this.ticketsStore.save(ticketToUpdate);
     return ticket;
   }
   pendingSyncCount(): Promise<any> {

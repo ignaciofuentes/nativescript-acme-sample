@@ -57,7 +57,7 @@ export class TicketsComponent implements OnInit {
   async setStatus(ticket: Ticket, status) {
     ticket.Status = status;
     let caseNumber = ticket.CaseNumber;
-    ticket = await this.backendService.editTicketStatus(ticket);
+    await this.backendService.editTicketStatus(ticket);
     this.processPieData(this.tickets);
   }
 }
