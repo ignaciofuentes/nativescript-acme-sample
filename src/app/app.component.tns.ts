@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
+import * as connectivity from "tns-core-modules/connectivity";
+import { Toasty } from "nativescript-toasty";
+
 import { BackendService } from "./backend.service";
 import { Router } from "./utils";
-import * as connectivity from "connectivity";
-import { Toasty } from "nativescript-toasty";
 
 @Component({
   selector: "app-root",

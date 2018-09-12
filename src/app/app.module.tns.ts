@@ -9,8 +9,10 @@ import { LoginComponent } from "./login/login.component";
 import { TicketsModule } from "./tickets/tickets.module";
 import { EquipmentModule } from "./equipment/equipment.module";
 import { ProfileModule } from "./profile/profile.module";
+import { StatsModule } from "./stats/stats.module";
 import { BackendService } from "./backend.service";
 import { DashboardLayoutComponent } from "./dashboard-layout/dashboard-layout.component";
+import { Stats } from "fs";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, DashboardLayoutComponent],
@@ -21,7 +23,8 @@ import { DashboardLayoutComponent } from "./dashboard-layout/dashboard-layout.co
     AppRoutingModule,
     TicketsModule,
     EquipmentModule,
-    ProfileModule
+    ProfileModule,
+    StatsModule,
   ],
   providers: [BackendService],
   bootstrap: [AppComponent],

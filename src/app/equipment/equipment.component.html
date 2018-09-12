@@ -1,14 +1,14 @@
 <DockLayout stretchLastChild="true">
-    <app-nav-bar [index]="1"></app-nav-bar>
-  
-    <GridLayout rows="auto, *">
-      <StackLayout row="0" class="action-bar">
-        <Image src="~/app/images/logo.png" class="action-bar-logo"></Image>
-      </StackLayout>
-  
-      <GridLayout row="1">
-        <AR *ngIf="isSupported" debugLevel="FEATURE_POINTS" detectPlanes="true" [planeMaterial]="planeMaterial" (planeTapped)="onPlaneTapped($event)">
-        </AR>
-      </GridLayout>
+  <app-nav-bar [index]="2"></app-nav-bar>
+
+  <GridLayout rows="auto, *">
+    <StackLayout row="0" class="action-bar">
+      <Image src="~/app/images/logo.png" class="action-bar-logo"></Image>
+    </StackLayout>
+
+    <GridLayout row="1">
+      <AR *ngIf="isSupported" debugLevel="FEATURE_POINTS" detectPlanes="true" [planeMaterial]="planeMaterial" (planeTapped)="onPlaneTapped($event)">
+      </AR>
     </GridLayout>
-  </DockLayout>
+  </GridLayout>
+</DockLayout>
