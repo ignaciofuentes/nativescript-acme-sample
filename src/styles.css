@@ -3,14 +3,14 @@
 @import "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css";
 
 @font-face {
-  font-family: "avenir";
-  src: url("/assets/Avenir.ttc");
+  font-family: "Nunito-Regular";
+  src: url("/assets/Nunito-Regular.ttf");
 }
 html {
   height: 100%;
 }
 body {
-  font-family: avenir;
+  font-family: Nunito-Regular;
   height: 100%;
 }
 .popup {

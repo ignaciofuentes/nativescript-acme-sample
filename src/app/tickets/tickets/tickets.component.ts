@@ -51,9 +51,6 @@ export class TicketsComponent implements OnInit {
     ]);
   }
 
-  getStatusColor(status) {
-    return ColorUtility.getStatusColor(status);
-  }
   async setStatus(ticket: Ticket, status) {
     ticket.Status = status;
     let caseNumber = ticket.CaseNumber;
