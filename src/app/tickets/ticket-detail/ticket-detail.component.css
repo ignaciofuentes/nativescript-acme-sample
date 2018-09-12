@@ -41,6 +41,7 @@
 .order-status {
   text-transform: uppercase;
   font-size: 10;
+  padding-left: 5;
 }
 
 .hr-light {
