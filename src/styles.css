@@ -17,56 +17,6 @@ body {
   opacity: 0.9;
 }
 
-.darvin-open-icon,
-.darvin-close-icon {
-  background: #ff6358 !important;
-  border-radius: 30px;
-}
-
-.darvin-open-icon::before,
-.darvin-close-icon::before {
-  font-family: Ionicons;
-  position: relative;
-  top: 0.13em;
-  right: -0.55em;
-  content: "\f3f9";
-  font-size: 30px;
-  color: white;
-}
-
-.darvin-open-icon::after,
-.darvin-close-icon::after {
-  content: "CHAT";
-  color: white;
-  font-size: 10px;
-  right: 0.66em;
-  position: relative;
-  top: 18px;
-}
-
-.alerts {
-  width: 260px;
-}
-.circle {
-  background-color: #ff6358;
-  height: 42px;
-  width: 42px;
-  border-radius: 42px;
-  float: left;
-}
-.alert-icon {
-  font-size: 28px;
-  color: white;
-  top: 2px;
-  margin-left: 8px;
-  position: relative;
-}
-
-.alert-text {
-  color: black;
-  font-weight: bold;
-}
-
 .k-grid-content .k-button {
   margin: 0;
 }
