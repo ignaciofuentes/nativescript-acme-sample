@@ -1,9 +1,5 @@
 import { Component, OnInit, NgZone } from "@angular/core";
-
 import { BackendService, Ticket } from "../../backend.service";
-import { ColorUtility } from "../../utils/colors";
-import { BehaviorSubject } from "rxjs";
-
 @Component({
   selector: "app-tickets",
   templateUrl: "./tickets.component.html",
@@ -11,31 +7,22 @@ import { BehaviorSubject } from "rxjs";
 })
 export class TicketsComponent implements OnInit {
   tickets: Ticket[];
-  listLoaded: boolean;
-  isLoading: boolean;
-  public pieData: BehaviorSubject<any> = new BehaviorSubject<any>([]);
-
+  pieData;
   constructor(private zone: NgZone, private backendService: BackendService) {}
-
   ngOnInit() {
-    this.listLoaded = false;
-    this.isLoading = true;
     this.loadData();
   }
-
   loadData() {
     this.backendService.getTickets().subscribe(data => {
       this.zone.run(() => {
         this.tickets = data;
-        this.processPieData(data);
+        this.processPieData();
       });
     });
-    this.isLoading = false;
-    this.listLoaded = true;
   }
-
-  private processPieData(data: Ticket[]) {
-    this.pieData.next([
+  private processPieData() {
+    let data = this.tickets;
+    this.pieData = [
       {
         category: "Working",
         value: data.filter(i => i.Status === "Working").length / data.length
@@ -48,13 +35,11 @@ export class TicketsComponent implements OnInit {
         category: "Closed",
         value: data.filter(i => i.Status === "Closed").length / data.length
       }
-    ]);
+    ];
   }
-
   async setStatus(ticket: Ticket, status) {
     ticket.Status = status;
-    let caseNumber = ticket.CaseNumber;
     await this.backendService.editTicketStatus(ticket);
-    this.processPieData(this.tickets);
+    this.processPieData();
   }
 }
