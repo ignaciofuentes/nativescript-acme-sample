@@ -6,7 +6,7 @@ The following repo is a Kinvey-powered NativeScript app that runs on the web, on
 
 ## Prerequisites
 
-See <https://docs.nativescript.org/angular/code-sharing/creating-a-new-project#prerequisites>.
+See the [NativeScript code-sharing documentation](https://docs.nativescript.org/angular/code-sharing/creating-a-new-project#prerequisites) for details on the requirements you need to run this sample.
 
 ## Running your app: web
 
