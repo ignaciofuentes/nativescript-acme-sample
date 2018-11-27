@@ -1,27 +1,31 @@
-# demo
+# NativeScript ACME Sample
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.0.
+The following repo is a Kinvey-powered NativeScript app that runs on the web, on iOS, and on Android.
 
-## Development server
+![](assets/screenshot.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Prerequisites
 
-## Code scaffolding
+See the [NativeScript code-sharing documentation](https://docs.nativescript.org/angular/code-sharing/creating-a-new-project#prerequisites) for more information on the requirements you need to run this sample.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Running your app: web
 
-## Build
+```
+ng serve
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Running your app: native
 
-## Running unit tests
+```
+tns run ios --bundle
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+or
 
-## Running end-to-end tests
+```
+tns run android --bundle
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## More
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This repo is built on top of the NativeScript code-sharing approach, and as such, you can read more about to to build and extend this app on the [NativeScript code-sharing documentation(https://docs.nativescript.org/angular/code-sharing/intro).
