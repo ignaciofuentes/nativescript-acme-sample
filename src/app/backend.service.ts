@@ -19,13 +19,10 @@ export interface Ticket {
 })
 export class BackendService {
   private user: Kinvey.User;
-  private ticketsStore: CacheStore<Ticket>;
+  private ticketsStore: any;
 
   constructor() {
-    Kinvey.init({
-      appKey: "kid_rkDJUINIQ",
-      appSecret: "17282f9d91da4af7b398855e32ea4dd0"
-    });
+    Kinvey.init();
 
     this.ticketsStore = Kinvey.DataStore.collection<Ticket>("tickets");
   }
@@ -37,7 +34,7 @@ export class BackendService {
   }
 
   async loginWithMIC(): Promise<Kinvey.User> {
-    this.user = await Kinvey.User.loginWithMIC("http://localhost:4200");
+    this.user = await Kinvey.User.loginWithMIC();
 
     return this.user;
   }

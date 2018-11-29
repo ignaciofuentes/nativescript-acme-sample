@@ -7,7 +7,7 @@
       <GridLayout row="0" rows="*, *" columns="50, *" class="form-container">
           <Label row="0" rowSpan="2" col="0" class="ion" text="&#xf47d;"></Label>
           <Label row="0" col="1" class="upper-label" text="USER"></Label>
-          <TextField row="1" col="1" [(ngModel)]="name"></TextField>
+          <TextField row="1" col="1" [(ngModel)]="name" autocapitalizationType="none" autocorrect="false"></TextField>
       </GridLayout>
 
       <StackLayout row="1" class="hr"></StackLayout>
@@ -15,7 +15,7 @@
       <GridLayout row="2" rows="*, *" columns="50, *" class="form-container">
           <Label row="0" rowSpan="2" col="0" class="ion" text="&#xf4c8;"></Label>
           <Label row="0" col="1" class="upper-label" text="PASSWORD"></Label>
-          <TextField row="1" col="1" [(ngModel)]="password"></TextField>
+          <TextField row="1" col="1" secure="true" [(ngModel)]="password" autocapitalizationType="none" autocorrect="false"></TextField>
       </GridLayout>
 
       <ActivityIndicator rowSpan="3" [busy]="processing"></ActivityIndicator>

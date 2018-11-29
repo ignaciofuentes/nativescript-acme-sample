@@ -12,7 +12,6 @@ import { ProfileModule } from "./profile/profile.module";
 import { StatsModule } from "./stats/stats.module";
 import { BackendService } from "./backend.service";
 import { DashboardLayoutComponent } from "./dashboard-layout/dashboard-layout.component";
-import { Stats } from "fs";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, DashboardLayoutComponent],
