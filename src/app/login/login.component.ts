@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   async loginWithMIC() {
     try {
-      await this.service.loginWithMIC();
+      await this.service.loginWithMIC("http://localhost:4200");
       this.router.navigate([""]);
     } catch {
       alert("auth error");

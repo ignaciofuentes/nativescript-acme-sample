@@ -45,7 +45,7 @@ export class LoginComponent {
 
   async loginWithMIC() {
     try {
-      const user = await this.backendService.loginWithMIC();
+      const user = await this.backendService.loginWithMIC("sde://");
       this.navigateToTickets();
       console.log("user: " + JSON.stringify(user));
     } catch (error) {

@@ -30,7 +30,7 @@ import 'hammerjs';
     ButtonsModule,
     ChartsModule
   ],
-  providers: [BackendService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
