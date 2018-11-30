@@ -19,7 +19,7 @@ if (module["hot"]) {
 
     // Path to your app module.
     // You might have to change it if your module is in a different place.
-    module['hot'].accept(["./app/app.module"]);
+    module['hot'].accept(["./app/app.module.tns"]);
 }
 
 // !!! Don't forget to pass the options when creating the platform

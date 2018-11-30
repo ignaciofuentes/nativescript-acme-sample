@@ -3,9 +3,6 @@ GridLayout {
     color: #FFFFFF;
     height: 65;
 }
-.iPhoneX {
-    height: 80;
-}
 StackLayout {
     padding: 8 0;
 }
