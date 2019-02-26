@@ -33,14 +33,14 @@
   padding: 25;
 }
 .order-id {
-  font-size: 10;
+  font-size: 14;
 }
 .order-location {
-  font-size: 18;
+  font-size: 26;
 }
 .order-status {
   text-transform: uppercase;
-  font-size: 10;
+  font-size: 14;
   padding-left: 5;
 }
 

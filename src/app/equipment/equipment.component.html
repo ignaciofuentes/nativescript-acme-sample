@@ -7,7 +7,11 @@
     </StackLayout>
 
     <GridLayout row="1">
-      <AR *ngIf="isSupported" debugLevel="FEATURE_POINTS" detectPlanes="true" [planeMaterial]="planeMaterial" (planeTapped)="onPlaneTapped($event)">
+      <AR *ngIf="isSupported"
+        debugLevel="FEATURE_POINTS"
+        detectPlanes="true"
+        [planeMaterial]="planeMaterial"
+        (planeTapped)="onPlaneTapped($event)">
       </AR>
     </GridLayout>
   </GridLayout>

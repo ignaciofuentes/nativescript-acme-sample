@@ -4,6 +4,8 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { isIOS, isAndroid } from "tns-core-modules/platform";
 import { Page } from "tns-core-modules/ui/page";
 
+import { FingerprintAuth, BiometricIDAvailableResult } from "nativescript-fingerprint-auth";
+
 import { BackendService } from "../backend.service";
 
 @Component({
@@ -13,6 +15,8 @@ import { BackendService } from "../backend.service";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent {
+  private fingerprintAuth: FingerprintAuth;
+
   name = "admin";
   password = "admin";
   isIOS = isIOS;
@@ -28,6 +32,8 @@ export class LoginComponent {
     this.page.backgroundSpanUnderStatusBar = true;
     this.page.actionBarHidden = true;
     this.page.className = "fancy-background";
+
+    this.fingerprintAuth = new FingerprintAuth();
   }
 
   async login() {
@@ -44,19 +50,31 @@ export class LoginComponent {
   }
 
   async loginWithMIC() {
-    try {
+    /*try {
       const user = await this.backendService.loginWithMIC("sde://");
       this.navigateToTickets();
       console.log("user: " + JSON.stringify(user));
     } catch (error) {
       alert("An error occurred. Check your Kinvey settings.");
       console.log("error: " + error);
-    }
+    }*/
+
+    this.fingerprintAuth.verifyFingerprint(
+      {
+        title: 'Android title', // optional title (used only on Android)
+        message: 'Scan yer finger', // optional (used on both platforms) - for FaceID on iOS see the notes about NSFaceIDUsageDescription
+        authenticationValidityDuration: 10, // optional (used on Android, default 5)
+        useCustomAndroidUI: false // set to true to use a different authentication screen (see below)
+      })
+      .then((enteredPassword?: string) => {
+        this.navigateToTickets();
+      })
+      .catch(err => console.log(`Biometric ID NOT OK: ${JSON.stringify(err)}`));
   }
 
   private navigateToTickets() {
     this.zone.run(() => {
-      this._routerExtensions.navigate(["/tickets"], {
+      this._routerExtensions.navigate(["/chat"], {
         clearHistory: true,
         animated: true,
         transition: {

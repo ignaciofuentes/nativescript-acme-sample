@@ -15,7 +15,7 @@ export class TicketsComponent implements OnInit {
     {
       car: "2010 Ford Focus",
       desc: "Major damage to trunk after a rear-end collision.",
-      status: "PENDING",
+      status: "PEND",
       color: "#DDAA00",
       _id: "1"
     },

@@ -21,13 +21,13 @@ ListView {
     font-weight: 300;
 }
 .list-order {
-    font-size: 18;
+    font-size: 20;
 }
 .list-location {
-    font-size: 12;
+    font-size: 16;
 }
 .list-status {
-    font-size: 9;
+    font-size: 12;
     color: green;
     letter-spacing: 0.1;
     font-weight: 900;

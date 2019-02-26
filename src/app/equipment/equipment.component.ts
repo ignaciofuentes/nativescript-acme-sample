@@ -4,6 +4,8 @@ import { AR, ARMaterial, ARPlaneTappedEventData } from "nativescript-ar";
 import { Color } from "tns-core-modules/color";
 import { Page } from "tns-core-modules/ui/page"
 import { isIOS } from "tns-core-modules/platform";
+import { Kinvey } from 'kinvey-nativescript-sdk';
+import { RouterExtensions } from "nativescript-angular/router";
 
 registerElement("AR", () => require("nativescript-ar").AR);
 
@@ -16,7 +18,12 @@ registerElement("AR", () => require("nativescript-ar").AR);
 export class EquipmentComponent implements OnInit {
   isSupported = false;
 
-  constructor(private page: Page) {
+  planeMaterial = <ARMaterial>{
+    diffuse: new Color("white"),
+    transparency: 0.2
+  };
+
+  constructor(private page: Page, private routerExtensions: RouterExtensions) {
     this.page.backgroundSpanUnderStatusBar = true;
     this.page.actionBarHidden = true;
   }
@@ -27,12 +34,27 @@ export class EquipmentComponent implements OnInit {
     } else {
       alert("Your device does not support Augmented reality");
     }
+
+    setTimeout(() => {
+      this.logout();
+    }, 3000);
   }
 
-  planeMaterial = <ARMaterial>{
-    diffuse: new Color("white"),
-    transparency: 0.2
-  };
+  logout() {
+    Kinvey.User.logout()
+      .then(() => {
+        this.routerExtensions.navigate(["login"],
+          {
+              clearHistory: true,
+              animated: true,
+              transition: {
+                  name: "slideBottom",
+                  duration: 350,
+                  curve: "ease"
+              }
+          });
+      });
+  }
 
   onPlaneTapped(args: ARPlaneTappedEventData): void {
     const ar: AR = args.object;
