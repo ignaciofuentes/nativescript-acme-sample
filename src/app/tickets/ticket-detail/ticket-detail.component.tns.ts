@@ -14,7 +14,7 @@ import { Toasty } from "nativescript-toasty";
   moduleId: module.id
 })
 export class TicketDetailComponent implements OnInit {
-  ticket: Ticket;
+  ticket = {};
 
   @ViewChild(RadSideDrawerComponent)
   public drawerComponent: RadSideDrawerComponent;
@@ -31,8 +31,23 @@ export class TicketDetailComponent implements OnInit {
 
   ngOnInit() {
     const id: string = this.route.snapshot.params["id"];
-
-    this.zone.run(() => this.loadData(id));
+    if (id == "1") {
+      this.ticket = {
+        image: "~/app/images/car8.jpg",
+        car: "2010 Ford Focus",
+        color: "#DDAA00",
+        status: "PENDING",
+        desc: "Major damage to trunk after a rear-end collision."
+      };
+    } else {
+      this.ticket = {
+        image: "~/app/images/car18.jpg",
+        car: "2008 Buick Regal",
+        color: "#00880A",
+        status: "PAID",
+        desc: "Hood damaged after incident with another vehicle."
+      };
+    }
   }
 
   loadData(id: string) {
@@ -46,19 +61,6 @@ export class TicketDetailComponent implements OnInit {
   }
   onCloseDrawerTap() {
     this.drawerComponent.sideDrawer.closeDrawer();
-  }
-
-  async changeStatus(status) {
-    try {
-      this.ticket.Status = status;
-      await this.backendService.editTicketStatus(this.ticket);
-    } catch (e) {
-      console.log(e);
-    } finally {
-      this.drawerComponent.sideDrawer.closeDrawer();
-      const toast = new Toasty("Status Updated");
-      toast.show();
-    }
   }
 
   getStatusColor(status) {

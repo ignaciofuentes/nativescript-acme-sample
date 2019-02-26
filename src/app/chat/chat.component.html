@@ -1,0 +1,12 @@
+<DockLayout stretchLastChild="true">
+  <app-nav-bar [index]="0"></app-nav-bar>
+
+  <GridLayout rows="auto, *">
+    <StackLayout row="0" class="action-bar">
+      <Image src="~/app/images/logo.png" class="action-bar-logo"></Image>
+    </StackLayout>
+    <StackLayout row="1">
+      <NativeChat [config]="nativeChatConfig" (loaded)="onLoaded()"></NativeChat>
+    </StackLayout>
+  </GridLayout>
+</DockLayout>

@@ -1,19 +1,19 @@
 <DockLayout stretchLastChild="true" [class.android]="isAndroid">
-  <app-nav-bar [index]="0"></app-nav-bar>
+  <app-nav-bar [index]="1"></app-nav-bar>
 
   <GridLayout rows="auto, *" class="page-container">
     <StackLayout row="0" class="action-bar">
       <Image src="~/app/images/logo.png" class="action-bar-logo"></Image>
     </StackLayout>
 
-    <ListView row="1" [items]="tickets | async" class="list-group" [class.visible]="listLoaded">
+    <ListView row="1" [items]="tickets" class="list-group" [class.visible]="listLoaded">
       <ng-template let-ticket="item">
         <StackLayout [nsRouterLink]="['/ticket', ticket._id]" pageTransition="none">
-          <GridLayout class="item-container" rows="auto, auto" columns="auto, *, 70">
+          <GridLayout class="item-container" rows="auto, auto" columns="auto, *, 60">
             <Label col="0" rowSpan="2" class="ion list-icon" text="&#xf471;"></Label>
-            <Label col="1" row="0" class="list-order" [text]="ticket.CaseNumber"></Label>
-            <Label col="1" row="1" class="list-location" [text]="ticket.Subject" textWrap="true"></Label>
-            <Label col="2" row="0" rowSpan="2" class="list-status bold" [color]="getStatusColor(ticket.Status)" [text]="ticket.Status"
+            <Label col="1" row="0" class="list-order" [text]="ticket.car"></Label>
+            <Label col="1" row="1" class="list-location" [text]="ticket.desc" textWrap="true"></Label>
+            <Label col="2" row="0" rowSpan="2" class="list-status bold" [color]="ticket.color" [text]="ticket.status"
               textTransform="uppercase"></Label>
           </GridLayout>
         </StackLayout>

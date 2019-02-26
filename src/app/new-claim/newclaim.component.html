@@ -1,0 +1,38 @@
+<DockLayout stretchLastChild="true">
+    <app-nav-bar [index]="1"></app-nav-bar>
+  
+  <GridLayout rows="auto, *">
+    <StackLayout row="0" class="action-bar">
+      <Image src="~/app/images/logo.png" class="action-bar-logo"></Image>
+    </StackLayout>
+    <StackLayout row="1">
+      <ScrollView>
+        <StackLayout class="form">
+          <Label text="New Claim" class="heading bold"></Label>
+
+          <Label text="Name:"></Label>
+          <TextField text="Jane Doe"></TextField>
+
+          <Label text="Date:"></Label>
+          <TextField text="03/12/2018"></TextField>
+
+          <Label text="Vehicle:"></Label>
+          <TextField text="2010 Ford Focus"></TextField>
+          
+          <Label text="Description:"></Label>
+          <TextView class="description" text="Major damage to trunk after a rear-end collision."></TextView>
+
+          <Label text="Photos:" class="photo-heading"></Label>
+          <FlexboxLayout>
+            <Image class="car-image" src="~/app/images/car8.jpg"></Image>
+            <StackLayout class="camera-box">
+              <Label class="ion" text="&#xf118;"></Label>
+            </StackLayout>
+          </FlexboxLayout>
+
+          <Button text="Submit"></Button>
+        </StackLayout>
+      </ScrollView>
+    </StackLayout>
+  </GridLayout>
+</DockLayout>

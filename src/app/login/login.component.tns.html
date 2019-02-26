@@ -1,7 +1,7 @@
 <StackLayout [class.ios]="isIOS" [class.android]="isAndroid">
   <Image class="logo" src="~/app/images/logo.png"></Image>
 
-  <Label class="h1" text="ACME Ticketing"></Label>
+  <Label class="h1" text="ACME Claims"></Label>
 
   <GridLayout rows="auto, auto, auto">
       <GridLayout row="0" rows="*, *" columns="50, *" class="form-container">
@@ -23,8 +23,8 @@
 
   <StackLayout class="hr"></StackLayout>
 
-  <Button [isEnabled]="!processing" text="Sign in With Kinvey" (tap)="login()"></Button>
+  <Button [isEnabled]="!processing" text="Sign in" (tap)="login()"></Button>
 
   <Label class="or" text="OR"></Label>
-  <Label class="sign-in" text="COMPANY SIGN IN" (tap)="loginWithMIC()"></Label>
+  <Label class="sign-in" text="CREATE AN ACCOUNT" (tap)="loginWithMIC()"></Label>
 </StackLayout>

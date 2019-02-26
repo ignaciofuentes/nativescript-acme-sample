@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   createForm(): any {
     this.loginForm = this.fb.group({
-      name: ["admin", Validators.required],
-      password: ["admin", Validators.required]
+      name: ["user@kinvey.com", Validators.required],
+      password: ["password", Validators.required]
     });
   }
   constructor(

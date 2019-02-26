@@ -1,15 +1,5 @@
 ListView {
     separator-color: transparent;
-    opacity: 0;
-}
-.visible {
-    animation-name: show;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-}
-@keyframes show {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 .page-container {
@@ -31,10 +21,10 @@ ListView {
     font-weight: 300;
 }
 .list-order {
-    font-size: 10;
+    font-size: 18;
 }
 .list-location {
-    font-size: 18;
+    font-size: 12;
 }
 .list-status {
     font-size: 9;

@@ -11,7 +11,22 @@ import { ColorUtility } from "../../utils/colors";
   styleUrls: ["./tickets.component.css"]
 })
 export class TicketsComponent implements OnInit {
-  tickets: Observable<Ticket[]>;
+  tickets = [
+    {
+      car: "2010 Ford Focus",
+      desc: "Major damage to trunk after a rear-end collision.",
+      status: "PENDING",
+      color: "#DDAA00",
+      _id: "1"
+    },
+    {
+      car: "2008 Buick Regal",
+      desc: "Hood damaged after incident with another vehicle.",
+      status: "PAID",
+      color: "#00880A",
+      _id: "2"
+    }
+  ];
   listLoaded: boolean;
   isLoading: boolean;
 
@@ -31,7 +46,6 @@ export class TicketsComponent implements OnInit {
   }
 
   async loadData() {
-    this.tickets = this.backendService.getTickets();
     this.isLoading = false;
     this.listLoaded = true;
   }

@@ -1,0 +1,68 @@
+DockLayout {
+  background-color: white;
+}
+
+.form {
+  padding: 20;
+}
+
+Label {
+  margin: 20 0 5 0;
+}
+
+.heading {
+  margin-top: 5;
+  font-size: 30;
+  font-weight: bold;
+}
+
+TextField, TextView {
+  padding: 10;
+  text-decoration: none;
+  background-color: transparent;
+  border-width: 1;
+  border-color: #DEDEDE;
+  font-weight: 300;
+  border-radius: 5;
+}
+
+Button {
+  horizontal-align: center;
+  color: #FFFFFF;
+  background-color: #FF584E;
+  font-size: 14;
+  border-radius: 30;
+  padding: 15 0;
+  font-weight: 600;
+  margin-top: 40;
+  width: 325;
+}
+
+TextView {
+  height: 150;
+  font-size: 16;
+}
+
+.photo-heading {
+  border-width: 0 0 1 0;
+  border-color: #DEDEDE;
+  margin-bottom: 20;
+  padding-bottom: 5;
+}
+
+.car-image {
+  width: 50%;
+  horizontal-align: left;
+}
+
+.camera-box {
+  background-color: #DEDEDE;
+  width: 50%;
+  margin-left: 15;
+  
+}
+.camera-box Label {
+  horizontal-align: center;
+  vertical-align: middle;
+  padding-top: 10;
+}
