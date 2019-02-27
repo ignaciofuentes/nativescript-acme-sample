@@ -42,7 +42,7 @@ export class TicketDetailComponent implements OnInit {
     } else {
       this.ticket = {
         image: "~/app/images/car18.jpg",
-        car: "2008 Buick Regal",
+        car: "2008 Buick LaCrosse",
         color: "#00880A",
         status: "PAID",
         desc: "Hood damaged after incident with another vehicle."

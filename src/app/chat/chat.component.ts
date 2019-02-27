@@ -24,15 +24,15 @@ export class ChatComponent implements OnInit {
 
   onLoaded(): void {
     this.nativeChatConfig = {
-        botId: '5acddd9715e7187c15f3fc28',
-        channelId: 'f91f065c-4079-4fa9-8860-b893e2b81696',
-        channelToken: '0570f9a5-6c0e-4b77-b06d-20ce6d5c56d8',
+        "botId": "5c7561617498a12d34de3e12",
+        "channelId": "9edee837-db75-40e9-bbaf-34f609fe8abc",
+        "channelToken": "62b9ac13-5dce-40c5-9969-c708e5f6bb65",
         user: {
             name: 'John Smith'
         },
         session: {
             clear: true,
-            userMessage: 'Book a doctor',
+            userMessage: '',
             context: {
                 company: 'Progress Software',
                 phone: '555 555 5555'

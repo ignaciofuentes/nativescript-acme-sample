@@ -20,7 +20,7 @@ export class TicketsComponent implements OnInit {
       _id: "1"
     },
     {
-      car: "2008 Buick Regal",
+      car: "2008 Buick LaCrosse",
       desc: "Hood damaged after incident with another vehicle.",
       status: "PAID",
       color: "#00880A",
