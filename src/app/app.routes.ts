@@ -4,6 +4,6 @@ import { LoginComponent } from "./login/login.component";
 import { AnonGuard } from "./anon.guard";
 
 export const routes: Routes = [
-  { path: "", redirectTo: "new-claim", pathMatch: "full" },
+  { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "login", component: LoginComponent, canActivate: [AnonGuard] }
 ];
