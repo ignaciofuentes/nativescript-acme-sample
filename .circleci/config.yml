@@ -1,0 +1,59 @@
+version: 2
+jobs:
+  ios:
+    macos:
+      xcode: 10.1.0
+    environment:
+    - NS_SKIP_ENV_CHECK: 'true'
+    steps:
+    - checkout
+    - run:
+        name: Pre-launch iOS Simulator
+        command: xcrun instruments -w "iPhone 7 (12.1)" || true
+        background: true
+    - restore_cache:
+        name: Restore Homebrew cache
+        key: homebrew-{{ .Branch }}-2019-02-22.2
+    - run:
+        name: Install operating system level build dependencies with homebrew
+        command: |
+          brew update
+          brew bundle
+    - save_cache:
+        name: Save Homebrew cache
+        key: homebrew-{{ .Branch }}-2019-02-22.2
+        paths:
+        - /usr/local/Homebrew
+        - /usr/local/Cellar
+        - ~/Library/caches/Homebrew
+    - run:
+        name: Install global NativeScript settings
+        command: |
+          mkdir -p ~/.local/share/.nativescript-cli
+          cp user-settings.json ~/.local/share/.nativescript-cli
+    - restore_cache:
+        name: Restore Yarn cache
+        key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+    - run: yarn
+    - save_cache:
+        name: Save Yarn cache
+        key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+        paths:
+        - ~/.cache/yarn
+        - node_modules
+    - run:
+        name: Install Python `six` package
+        command: pip install six
+    - run:
+        name: Build iOS
+        command: yarn build-ios
+    - run:
+        name: Tests
+        command: yarn e2e -- --runType=sim.iPhone7 --ignoreDeviceController=false
+    - store_test_results:
+        path: test-results.xml
+workflows:
+  version: 2
+  build:
+    jobs:
+    - ios

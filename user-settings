@@ -1,0 +1,5 @@
+{
+	"TrackFeatureUsage": "false",
+	"TrackExceptions": "false",
+	"packageManager": "yarn"
+}
