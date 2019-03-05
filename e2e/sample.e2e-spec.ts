@@ -22,14 +22,17 @@ describe('sample scenario', () => {
         if (isLoginScreenLoaded) {
             const userNameField = await driver.waitForElement('userName');
             await userNameField.type(userName);
+
+            await driver.hideDeviceKeyboard();
+
             const userPasswordField = await driver.waitForElement('userPassword');
-            await userPasswordField.sendKeys(password);
-            let loginButton;
+            await userPasswordField.type(password);
             
             if(await driver.isKeyboardShown()){
                 await driver.hideDeviceKeyboard();
             }
 
+            let loginButton;
             if (loginType === 'kinvey') {
                 loginButton = await driver.waitForElement('kinveyLoginButton');
             } else {
@@ -71,7 +74,7 @@ describe('sample scenario', () => {
         const itemsContainer = await driver.findElementByClassName(driver.locators.listView);
 
         const lastItem = await itemsContainer.scrollTo(Direction.down,
-            () => driver.findElementByText('The valve makes', SearchOptions.contains));
+            () => driver.findElementByTextIfExists('The valve makes', SearchOptions.contains));
 
         await lastItem.tap();
 

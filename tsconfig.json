@@ -17,5 +17,8 @@
             "es2015.iterable"
         ],
         "baseUrl": "."
-    }
+    },
+    "exclude": [
+        "e2e"
+    ]
 }
