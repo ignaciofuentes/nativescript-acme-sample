@@ -38,23 +38,25 @@ describe('sample scenario', () => {
             } else {
                 loginButton = await driver.waitForElement('companyLoginButton');
             }
-
-            await loginButton.tap();
         } else {
             logInfo(`User is already logged!`);
         }
     }
 
     const isMainWindowLoaded = async () => {
-        const mainWindow = await driver.waitForElement('ticketsWindow');
+        const mainWindow = await driver.waitForElement('loginScreen');
         return mainWindow != null;
     }
 
-    it('login', async () => {
+    it('Test login screen loading', async () => {
         await login('admin', 'admin', 'kinvey');
-        expect(isMainWindowLoaded).toBeTruthy('Main window with tickets in not loaded!');
+        expect(isMainWindowLoaded).toBeTruthy('Main login window did not load!');
+
+        let loginButton = await driver.waitForElement('kinveyLoginButton');
+        expect(loginButton).toBeTruthy(`Log in button did not display!`);
     });
 
+    /*
     it('load profile', async () => {
         const profile = await driver.waitForElement('PROFILE');
         await profile.tap();
@@ -82,4 +84,5 @@ describe('sample scenario', () => {
 
         expect(description).toBeDefined();
     });
+    */
 });

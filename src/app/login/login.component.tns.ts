@@ -13,8 +13,8 @@ import { BackendService } from "../backend.service";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent {
-  name = "admin";
-  password = "admin";
+  name = "";
+  password = "";
   isIOS = isIOS;
   isAndroid = isAndroid;
   processing = false;
