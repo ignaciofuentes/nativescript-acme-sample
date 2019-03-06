@@ -49,7 +49,7 @@ jobs:
         command: yarn build-ios
     - run:
         name: Tests
-        command: yarn e2e -- --runType=sim.iPhone7 --ignoreDeviceController=false
+        command: yarn e2e-appium -- --runType=sim.iPhone7 --ignoreDeviceController=false
     - store_test_results:
         path: test-results.xml
 workflows:
