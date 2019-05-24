@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Kinvey } from 'kinvey-nativescript-sdk';
+import { User } from 'kinvey-nativescript-sdk';
 import { RouterExtensions } from "nativescript-angular/router";
 import { Page } from "tns-core-modules/ui/page";
 
@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
   }
 
   logout() {
-    Kinvey.User.logout()
+    User.logout()
       .then(() => {
         this._routerExtensions.navigate(["login"],
           {

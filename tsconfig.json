@@ -16,7 +16,12 @@
             "es6",
             "es2015.iterable"
         ],
-        "baseUrl": "."
+        "baseUrl": ".",
+        "paths": {
+            "~/*": [
+                "src/*"
+            ]
+        }
     },
     "exclude": [
         "e2e"
