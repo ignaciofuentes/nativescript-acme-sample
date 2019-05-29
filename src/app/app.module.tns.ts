@@ -12,6 +12,7 @@ import { ProfileModule } from "./profile/profile.module";
 import { StatsModule } from "./stats/stats.module";
 import { BackendService } from "./backend.service";
 import { DashboardLayoutComponent } from "./dashboard-layout/dashboard-layout.component";
+import { KinveyModule } from "kinvey-nativescript-sdk/angular";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, DashboardLayoutComponent],
@@ -24,6 +25,10 @@ import { DashboardLayoutComponent } from "./dashboard-layout/dashboard-layout.co
     EquipmentModule,
     ProfileModule,
     StatsModule,
+    KinveyModule.init({
+      appKey: "kid_rkDJUINIQ",
+      appSecret: "17282f9d91da4af7b398855e32ea4dd0"
+    })
   ],
   providers: [BackendService],
   bootstrap: [AppComponent],
