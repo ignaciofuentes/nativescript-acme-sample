@@ -1,5 +1,13 @@
 import { Injectable } from "@angular/core";
-import { Kinvey, CacheStore } from "./utils";
+import {
+  UserService,
+  FilesService,
+  DataStoreService,
+  DataStoreType,
+  Query,
+  AuthorizationGrant,
+  User
+} from "./utils";
 import { Observable } from "rxjs";
 
 export interface Ticket {
@@ -18,40 +26,42 @@ export interface Ticket {
   providedIn: "root"
 })
 export class BackendService {
-  private user: Kinvey.User;
+  private user: User;
   private ticketsStore: any;
 
-  constructor() {
-    Kinvey.init({
-      appKey: "kid_rkDJUINIQ",
-      appSecret: "17282f9d91da4af7b398855e32ea4dd0"
-    });
-
-    this.ticketsStore = Kinvey.DataStore.collection<Ticket>("tickets");
+  constructor(
+    private userService: UserService,
+    private filesService: FilesService,
+    private datastoreService: DataStoreService
+  ) {
+    this.ticketsStore = this.datastoreService.collection("tickets");
   }
 
-  async login(username: string, password: string): Promise<Kinvey.User> {
-    this.user = await Kinvey.User.login(username, password);
+  async login(username: string, password: string): Promise<User> {
+    this.user = await User.login(username, password);
 
     return this.user;
   }
 
-  async loginWithMIC(redirectUri: string): Promise<Kinvey.User> {
-    this.user = await Kinvey.User.loginWithMIC(redirectUri);
+  async loginWithMIC(redirectUri: string): Promise<User> {
+    this.user = await this.userService.loginWithMIC(
+      redirectUri,
+      AuthorizationGrant.AuthorizationCodeLoginPage
+    );
 
     return this.user;
   }
 
-  logout(): Promise<void> {
-    return Kinvey.User.logout();
+  logout(): Promise<User> {
+    return this.userService.logout();
   }
 
   isLoggedIn(): boolean {
-    return Kinvey.User.getActiveUser() != null;
+    return User.getActiveUser() != null;
   }
 
   getTickets(): Observable<Ticket[]> {
-    const query = new Kinvey.Query();
+    const query = new Query();
     query.ascending("CaseNumber");
     return this.ticketsStore.find(query);
   }
@@ -69,7 +79,7 @@ export class BackendService {
   pendingSyncCount(): Promise<any> {
     return this.ticketsStore.pendingSyncCount();
   }
-  push(): Promise<Kinvey.PushResult<Ticket>[]> {
+  push(): Promise<any> {
     return this.ticketsStore.push();
   }
 }

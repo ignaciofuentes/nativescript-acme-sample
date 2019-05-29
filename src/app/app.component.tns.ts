@@ -24,7 +24,7 @@ export class AppComponent {
 
           let pendingItems: number = await this.service.pendingSyncCount();
           if (pendingItems > 0) {
-            const toast = new Toasty("Updating " + pendingItems + " items");
+            const toast = new Toasty({ text: "Updating " + pendingItems + " items" });
             toast.show();
           }
           await this.service.push();

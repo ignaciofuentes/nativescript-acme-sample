@@ -27,7 +27,6 @@ export class LoginComponent {
   ) {
     this.page.backgroundSpanUnderStatusBar = true;
     this.page.actionBarHidden = true;
-    this.page.className = "fancy-background";
   }
 
   async login() {

@@ -11,11 +11,10 @@ import { BackendService } from "./backend.service";
 import { GridModule } from "@progress/kendo-angular-grid";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ButtonsModule } from "@progress/kendo-angular-buttons";
-import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
-import { ChartsModule } from '@progress/kendo-angular-charts';
-import 'hammerjs';
-
-
+import { DashboardLayoutComponent } from "./dashboard-layout/dashboard-layout.component";
+import { ChartsModule } from "@progress/kendo-angular-charts";
+import "hammerjs";
+import { KinveyModule } from "kinvey-angular-sdk";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, DashboardLayoutComponent],
@@ -28,7 +27,11 @@ import 'hammerjs';
     GridModule,
     BrowserAnimationsModule,
     ButtonsModule,
-    ChartsModule
+    ChartsModule,
+    KinveyModule.init({
+      appKey: "kid_rkDJUINIQ",
+      appSecret: "17282f9d91da4af7b398855e32ea4dd0"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
