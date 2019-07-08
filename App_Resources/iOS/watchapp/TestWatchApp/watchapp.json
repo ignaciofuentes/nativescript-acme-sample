@@ -1,0 +1,6 @@
+{
+    "assetcatalogCompilerAppiconName": "AppIcon",
+    "targetBuildConfigurationProperties": {
+        "WATCHOS_DEPLOYMENT_TARGET": 4.1
+    }
+}
