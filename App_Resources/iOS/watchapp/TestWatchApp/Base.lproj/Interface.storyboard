@@ -14,7 +14,10 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <button width="1" alignment="left" title="Hello World" id="O2A-ut-QN2"/>
+                        <label alignment="left" text="ACME Ticketing" id="030-4j-mLl"/>
+                        <separator alignment="left" id="x65-Up-fCz"/>
+                        <button width="1" alignment="left" title="Manage Tickets" id="A10-fj-XJu"/>
+                        <button width="1" alignment="left" title="Call Office" id="VJ5-mF-Eov"/>
                     </items>
                 </controller>
             </objects>

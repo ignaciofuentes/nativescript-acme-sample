@@ -14,6 +14,10 @@ export class AppComponent {
   constructor(private service: BackendService, private router: Router) {}
 
   async ngOnInit(): Promise<void> {
+    this.setupOfflineWatcher();
+  }
+
+  setupOfflineWatcher() {
     connectivity.startMonitoring(async (newConnectionType: number) => {
       switch (newConnectionType) {
         case connectivity.connectionType.none:
