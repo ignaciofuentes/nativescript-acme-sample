@@ -16,7 +16,7 @@ import { Toasty } from "nativescript-toasty";
 export class TicketDetailComponent implements OnInit {
   ticket: Ticket;
 
-  @ViewChild(RadSideDrawerComponent)
+  @ViewChild(RadSideDrawerComponent, null)
   public drawerComponent: RadSideDrawerComponent;
 
   constructor(
@@ -56,7 +56,7 @@ export class TicketDetailComponent implements OnInit {
       console.log(e);
     } finally {
       this.drawerComponent.sideDrawer.closeDrawer();
-      const toast = new Toasty("Status Updated");
+      const toast = new Toasty({ text: "Status Updated" });
       toast.show();
     }
   }

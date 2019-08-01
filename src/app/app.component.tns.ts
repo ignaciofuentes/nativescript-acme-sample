@@ -14,6 +14,10 @@ export class AppComponent {
   constructor(private service: BackendService, private router: Router) {}
 
   async ngOnInit(): Promise<void> {
+    this.setupOfflineWatcher();
+  }
+
+  setupOfflineWatcher() {
     connectivity.startMonitoring(async (newConnectionType: number) => {
       switch (newConnectionType) {
         case connectivity.connectionType.none:
@@ -24,7 +28,7 @@ export class AppComponent {
 
           let pendingItems: number = await this.service.pendingSyncCount();
           if (pendingItems > 0) {
-            const toast = new Toasty("Updating " + pendingItems + " items");
+            const toast = new Toasty({ text: "Updating " + pendingItems + " items" });
             toast.show();
           }
           await this.service.push();
