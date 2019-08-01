@@ -16,7 +16,7 @@ import { Toasty } from "nativescript-toasty";
 export class TicketDetailComponent implements OnInit {
   ticket: Ticket;
 
-  @ViewChild(RadSideDrawerComponent)
+  @ViewChild(RadSideDrawerComponent, null)
   public drawerComponent: RadSideDrawerComponent;
 
   constructor(
